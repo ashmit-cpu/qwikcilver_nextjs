@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-.sec_padding {
+.container.sec-padding {
   padding: 80px 40px;
 }
 @media all and (max-width: 1200px) {
-  .sec_padding {
+  .container.sec-padding {
     padding: 70px 30px;
   }
 }
@@ -30,6 +30,29 @@
   margin: 0 0 20px;
   letter-spacing: -2.96px;
 }
+@media all and (max-width: 1200px) {
+  .HeroSection .container .flex .left-col h1 {
+    font-size: 50px;
+  }
+}
+@media all and (max-width: 992px) {
+  .HeroSection .container .flex .left-col h1 {
+    font-size: 45px;
+  }
+}
+@media all and (max-width: 768px) {
+  .HeroSection .container .flex .left-col h1 {
+    font-size: 40px;
+  }
+}
+@media all and (max-width: 576px) {
+  .HeroSection .container .flex .left-col h1 {
+    font-size: 34px;
+  }
+}
 .HeroSection .container .flex .left-col .primary_btn {
   margin-top: 30px;
+}
+.HeroSection .container .flex .left-col #text-anim {
+  color: #50D387;
 }

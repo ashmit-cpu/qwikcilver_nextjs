@@ -1,5 +1,6 @@
 // import type { Metadata } from "next";
-import './globals.css'
+import "./globals.css";
+import { MenuProvider } from "../Context/menuProvider";
 
 export default function RootLayout({
   children,
@@ -8,13 +9,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
-      <body
-      >
-        <main>
-       {children}
-       </main>
-      </body>
+      <MenuProvider>
+        <body>
+          <main>{children}</main>
+        </body>
+      </MenuProvider>
     </html>
   );
 }

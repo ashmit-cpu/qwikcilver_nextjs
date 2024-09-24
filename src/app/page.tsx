@@ -1,35 +1,61 @@
 import Navbar from '@/components/common/Navbar/Navbar';
 import HeroSection from '@/components/HomePage/HeroSection/HeroSection';
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
+import axios from 'axios'; // Import axios
 
+// Function to fetch data using axios
 async function fetchHomePageData() {
-  const res = await fetch(`${wordpressUrl}wp-json/wp/v2/home-page/8`, {
-    cache: 'no-cache',
-  });
-  const datas = await res.json();
-  return datas; 
+  try {
+    const response = await axios.get(`${wordpressUrl}wp-json/wp/v2/home-page/8`, {
+      headers: {
+        'Cache-Control': 'no-cache', // Equivalent to fetch's cache: 'no-cache'
+      },
+    });
+    return response.data; // Axios returns the data directly in the `data` property
+  } catch (error) {
+    console.error('Error fetching home page data:', error);
+    throw error; // You can handle the error here as you need
+  }
 }
 
 // Function to generate metadata
 export async function generateMetadata() {
-  const datas = await fetchHomePageData();
+  try {
+    const datas = await fetchHomePageData();
 
-  return {
-    title: datas?.title?.rendered || 'Default Title',
-    description: datas?.acf?.meta_description || 'Default description',
-  };
+    return {
+      title: datas?.title?.rendered || 'Default Title',
+      description: datas?.acf?.meta_description || 'Default description',
+    };
+  } catch (error) {
+    console.error('Error generating metadata:', error);
+    return {
+      title: 'Default Title',
+      description: 'Default description',
+    };
+  }
 }
 
 // The Home component is now async because you're fetching data in the component itself
 async function Home() {
-  const datas = await fetchHomePageData(); 
+  try {
+    const datas = await fetchHomePageData();
 
-  return (
-    <div className="Home">
-      <Navbar />
-      <HeroSection data={datas} />
-    </div>
-  );
+    return (
+      <div className="Home">
+        <Navbar />
+        <HeroSection data={datas} />
+      </div>
+    );
+  } catch (error) {
+    console.error('Error rendering Home component:', error);
+    return (
+      <div className="Home">
+        <Navbar />
+        <div>Error loading the page. Please try again later.</div>
+      </div>
+    );
+  }
 }
 
 export default Home;

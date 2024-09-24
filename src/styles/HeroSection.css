@@ -19,30 +19,17 @@
   border-radius: 80px;
 }
 
-.Navbar .container {
-  background-color: #315046;
+.HeroSection .container .flex .left-col {
+  width: 60%;
 }
-.Navbar .container .flex {
-  padding: 12px 0;
-}
-.Navbar .container .flex .nav-link {
-  display: flex;
-  align-items: center;
-}
-.Navbar .container .flex .nav-link ul li {
-  padding: 0 24px;
-}
-.Navbar .container .flex .nav-link ul li a {
-  font-family: 500;
+.HeroSection .container .flex .left-col h1 {
+  font-size: 74px;
   font-family: "Poppins", system-ui;
   font-weight: 400;
   font-style: normal;
+  margin: 0 0 20px;
+  letter-spacing: -2.96px;
 }
-.Navbar .container .flex .nav-link .outline-btn {
-  display: inline-block;
-  border: 1px solid white;
-  color: white;
-  padding: 14px;
-  margin-right: 26px;
-  border-radius: 30px;
+.HeroSection .container .flex .left-col .primary_btn {
+  margin-top: 30px;
 }

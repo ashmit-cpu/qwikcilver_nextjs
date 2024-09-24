@@ -1,0 +1,24 @@
+@use "../../../partials/globals";
+
+.HeroSection {
+  .container {
+    .flex {
+      .left-col {
+        width: 60%;
+        h1 {
+          font-size: 74px;
+          @include globals.Poppins400;
+          margin: 0 0 20px;
+          letter-spacing: -2.96px;
+        }
+
+        .primary_btn{
+            margin-top: 30px;
+        }
+        
+      }
+
+      
+    }
+  }
+}

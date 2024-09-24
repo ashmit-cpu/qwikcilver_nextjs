@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  margin: 0 auto;
+}
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -25,3 +35,4 @@ body {
     text-wrap: balance;
   }
 }
+

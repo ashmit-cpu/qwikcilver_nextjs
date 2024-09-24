@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$primary_color:#315046;
+$secondary_color:#50D387;
+$bg_color:#F6F6F6;
+
+
+
+
+
+@mixin container_padding {
+  padding: 90px 100px;
+
+  @media all and (min-width: 2000px) {
+    max-width: 85%;
+    margin: 0 auto;
+  }
+
+  @media all and (max-width: 1200px) {
+    padding: 80px 80px;
+  }
+
+  @media all and (max-width: 992px) {
+    padding: 80px 50px;
+  }
+
+  @media all and (max-width: 768px) {
+    padding: 80px 32px;
+  }
+
+  @media all and (max-width: 576px) {
+    padding: 50px 14px;
+
+  }
+}
+
+
+
+@mixin Poppins400{
+  font-family: "Poppins", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.sec_padding{
+  padding: 80px 40px;
+  @media all and (max-width:1200px) {
+  padding: 70px 30px;
+    
+  }
+}
+
+.primary_btn{
+  display: inline-block;
+  padding: 16px 24px;
+  background: linear-gradient(122deg, $primary_color 0%, $secondary_color 180%);
+  color: white;
+  @include Poppins400();
+  border-radius: 80px;
+}

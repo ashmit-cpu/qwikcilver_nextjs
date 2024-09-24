@@ -1,0 +1,1 @@
+export const  wordpressUrl = 'https://webominddev.co.in/qctest/';

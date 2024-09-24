@@ -1,20 +1,25 @@
 import Navbar from '@/components/common/Navbar/Navbar';
 import HeroSection from '@/components/HomePage/HeroSection/HeroSection';
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
-import axios from 'axios'; // Import axios
 
-// Function to fetch data using axios
+// Function to fetch data using the Fetch API
 async function fetchHomePageData() {
   try {
-    const response = await axios.get(`${wordpressUrl}wp-json/wp/v2/home-page/8`, {
+    const res = await fetch(`${wordpressUrl}wp-json/wp/v2/home-page/8`, {
       headers: {
-        'Cache-Control': 'no-cache', // Equivalent to fetch's cache: 'no-cache'
+        'Cache-Control': 'no-cache', // Equivalent to axios' 'no-cache' behavior
       },
     });
-    return response.data; // Axios returns the data directly in the `data` property
+
+    if (!res.ok) {
+      throw new Error(`Error: ${res.status} - ${res.statusText}`);
+    }
+
+    const datas = await res.json(); // Fetch's way of getting JSON response
+    return datas;
   } catch (error) {
     console.error('Error fetching home page data:', error);
-    throw error; // You can handle the error here as you need
+    throw error;
   }
 }
 
@@ -39,14 +44,13 @@ export async function generateMetadata() {
 // The Home component is now async because you're fetching data in the component itself
 async function Home() {
   const datas = await fetchHomePageData();
- 
 
-    return (
-      <div className="Home">
-        <Navbar />
-        <HeroSection data={datas} />
-      </div>
-    );
+  return (
+    <div className="Home">
+      <Navbar />
+      <HeroSection data={datas} />
+    </div>
+  );
 }
 
 export default Home;

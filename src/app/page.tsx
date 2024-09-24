@@ -38,8 +38,8 @@ export async function generateMetadata() {
 
 // The Home component is now async because you're fetching data in the component itself
 async function Home() {
-  try {
-    const datas = await fetchHomePageData();
+  const datas = await fetchHomePageData();
+ 
 
     return (
       <div className="Home">
@@ -47,15 +47,6 @@ async function Home() {
         <HeroSection data={datas} />
       </div>
     );
-  } catch (error) {
-    console.error('Error rendering Home component:', error);
-    return (
-      <div className="Home">
-        <Navbar />
-        <div>Error loading the page. Please try again later.</div>
-      </div>
-    );
-  }
 }
 
 export default Home;

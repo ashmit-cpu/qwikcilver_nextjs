@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.container.sec-padding {
+  padding: 80px 40px !important;
+}
+@media all and (max-width: 1200px) {
+  .container.sec-padding {
+    padding: 70px 30px;
+  }
+}
+
+.primary_btn {
+  display: inline-block;
+  padding: 16px 24px;
+  background: linear-gradient(122deg, #315046 0%, #50d387 180%);
+  color: white;
+  @includepoppins400 ():;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
+}
+
+.case_study {
+  padding: 80px 0;
+}
+.case_study h2 {
+  color: #000;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: -0.04em;
+}
+.case_study h2 span {
+  font-weight: 600;
+  background: -webkit-linear-gradient(0deg, #000 0%, #32c570 100%);
+  background: linear-gradient(90deg, #000 0%, #32c570 140%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.case_study p {
+  font-family: "Poppins", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4em;
+  letter-spacing: -0.02em;
+}
+@media all and (max-width: 768px) {
+  .case_study p {
+    font-size: 16px;
+  }
+}
+.case_study .caseStudy_card {
+  width: 50%;
+  height: 100%;
+  background-color: #002f21;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  border: 1px solid #002f21;
+  transition: 0.4s all;
+  -webkit-transition: 0.4s all;
+  -moz-transition: 0.4s all;
+  -ms-transition: 0.4s all;
+  -o-transition: 0.4s all;
+}
+.case_study .caseStudy_card:hover img {
+  -webkit-transform: scale(1.05) rotate(2deg);
+  transform: scale(1.05) rotate(2deg);
+  opacity: 0.8;
+}
+.case_study .caseStudy_card .caseStudy_image {
+  height: 270px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 30px 30px 0 0;
+  -webkit-border-radius: 30px 30px 0 0;
+  -moz-border-radius: 30px 30px 0 0;
+  -ms-border-radius: 30px 30px 0 0;
+  -o-border-radius: 30px 30px 0 0;
+  transition: 0.4s all;
+  -webkit-transition: 0.4s all;
+  -moz-transition: 0.4s all;
+  -ms-transition: 0.4s all;
+  -o-transition: 0.4s all;
+}
+.case_study .caseStudy_card .caseStudy_image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px 30px 0 0;
+  -webkit-border-radius: 30px 30px 0 0;
+  -moz-border-radius: 30px 30px 0 0;
+  -ms-border-radius: 30px 30px 0 0;
+  -o-border-radius: 30px 30px 0 0;
+  transition: 0.4s all;
+  -webkit-transition: 0.4s all;
+  -moz-transition: 0.4s all;
+  -ms-transition: 0.4s all;
+  -o-transition: 0.4s all;
+}
+.case_study .caseStudy_card .caseStudy_content {
+  padding: 40px 20px 40px 20px;
+}
+.case_study .caseStudy_card .caseStudy_content h2 {
+  font-size: 25px;
+  font-weight: 400;
+  color: #fff;
+  font-family: "Poppins", Sans-serif;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+.case_study .caseStudy_card .caseStudy_content h2 a {
+  line-height: 1.2;
+}
+.case_study .caseStudy_card .caseStudy_content p {
+  font-family: "Poppins", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4em;
+  letter-spacing: -0.02em;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+@media all and (max-width: 768px) {
+  .case_study .caseStudy_card .caseStudy_content p {
+    font-size: 16px;
+  }
+}
+.case_study .caseStudy_card .caseStudy_content .Case_study_btn {
+  font-size: 15px;
+  padding: 15px 30px;
+  font-weight: 300;
+  display: flex;
+  width: fit-content;
+  color: #fff;
+  position: relative;
+  line-height: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 50px 50px 50px 50px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.case_study .caseStudy_card .caseStudy_content .Case_study_btn svg {
+  margin-left: 15px;
+}

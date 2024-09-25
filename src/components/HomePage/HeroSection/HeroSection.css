@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-.container.sec-padding {
-  padding: 80px 40px !important;
+.sec_padding {
+  padding: 80px 40px;
 }
 @media all and (max-width: 1200px) {
-  .container.sec-padding {
+  .sec_padding {
     padding: 70px 30px;
   }
 }
@@ -11,14 +11,12 @@
 .primary_btn {
   display: inline-block;
   padding: 16px 24px;
-  background: linear-gradient(122deg, #315046 0%, #50d387 180%);
+  background: linear-gradient(122deg, #315046 0%, #50D387 180%);
   color: white;
-  @includepoppins400 ():;
+  font-family: "Poppins", system-ui;
+  font-weight: 400;
+  font-style: normal;
   border-radius: 80px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  -ms-border-radius: 80px;
-  -o-border-radius: 80px;
 }
 
 .HeroSection .container .flex .left-col {
@@ -26,7 +24,7 @@
 }
 .HeroSection .container .flex .left-col h1 {
   font-size: 74px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", system-ui;
   font-weight: 400;
   font-style: normal;
   margin: 0 0 20px;
@@ -34,4 +32,4 @@
 }
 .HeroSection .container .flex .left-col .primary_btn {
   margin-top: 30px;
-}
+}/*# sourceMappingURL=HeroSection.css.map */

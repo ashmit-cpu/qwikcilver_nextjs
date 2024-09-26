@@ -1,5 +1,6 @@
 import Navbar from '@/components/common/Navbar/Navbar';
 import HeroSection from '@/components/HomePage/HeroSection/HeroSection';
+import CaseStudy from '@/components/HomePage/case-study/CaseStudy';
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
 import CounterSection from '@/components/HomePage/CounterSection/CounterSection'
 import BrandThatLove from '@/components/HomePage/BrandThatLove/BrandThatLove'
@@ -46,11 +47,15 @@ async function Home() {
 
   return (
     <div className="Home">
-      <Navbar />
+      {/* <Navbar /> */}
       <HeroSection data={datas} />
+<<<<<<< HEAD
       <CounterSection data={datas}/>
       <BrandThatLove/>
       <NextgenStack/>
+=======
+      <CaseStudy />
+>>>>>>> 47b6b1f0e9d93d33ec7815b389f07eec3602e8bd
     </div>
   );
 }

@@ -1,0 +1,126 @@
+@use "../../../partials/globals";
+
+.case_study {
+  padding: 80px 0;
+  h2 {
+    color: #000;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1em;
+    letter-spacing: -0.04em;
+
+    span {
+      font-weight: 600;
+      @include globals.text_gradient_variant_2;
+    }
+  }
+  p {
+    @include globals.p_style;
+  }
+  .caseStudy_card {
+    width: 50%;
+    height: 100%;
+    background-color: #002f21;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+
+    border: 1px solid #002f21;
+    transition: 0.4s all;
+    -webkit-transition: 0.4s all;
+    -moz-transition: 0.4s all;
+    -ms-transition: 0.4s all;
+    -o-transition: 0.4s all;
+
+    &:hover img {
+      -webkit-transform: scale(1.05) rotate(2deg);
+      transform: scale(1.05) rotate(2deg);
+      opacity: 0.8;
+    }
+
+    .caseStudy_image {
+      height: 270px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 30px 30px 0 0;
+      -webkit-border-radius: 30px 30px 0 0;
+      -moz-border-radius: 30px 30px 0 0;
+      -ms-border-radius: 30px 30px 0 0;
+      -o-border-radius: 30px 30px 0 0;
+      transition: 0.4s all;
+      -webkit-transition: 0.4s all;
+      -moz-transition: 0.4s all;
+      -ms-transition: 0.4s all;
+      -o-transition: 0.4s all;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 30px 30px 0 0;
+        -webkit-border-radius: 30px 30px 0 0;
+        -moz-border-radius: 30px 30px 0 0;
+        -ms-border-radius: 30px 30px 0 0;
+        -o-border-radius: 30px 30px 0 0;
+        transition: 0.4s all;
+        -webkit-transition: 0.4s all;
+        -moz-transition: 0.4s all;
+        -ms-transition: 0.4s all;
+        -o-transition: 0.4s all;
+      }
+    }
+
+    .caseStudy_content {
+      padding: 40px 20px 40px 20px;
+
+      h2 {
+        font-size: 25px;
+        font-weight: 400;
+        color: #fff;
+        font-family: "Poppins", Sans-serif;
+        line-height: 1.2;
+        margin-bottom: 15px;
+
+        a {
+          line-height: 1.2;
+        }
+      }
+      p {
+        @include globals.p_style;
+        font-size: 16px;
+        color: #fff;
+        font-weight: 300;
+        margin-bottom: 20px;
+      }
+      .Case_study_btn {
+        font-size: 15px;
+        padding: 15px 30px;
+        font-weight: 300;
+        display: flex;
+        width: fit-content;
+        color: #fff;
+        position: relative;
+        line-height: 1;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        white-space: nowrap;
+        vertical-align: middle;
+        text-align: center;
+        background-color: #ffffff00;
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        border-radius: 50px 50px 50px 50px;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+
+        svg{
+            margin-left: 15px;
+        }
+      }
+    }
+  }
+}

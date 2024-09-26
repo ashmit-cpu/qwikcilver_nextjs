@@ -1,9 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+<<<<<<< HEAD
 
 $primary_color: #315046;
 $dark_primary:#002F21;
 $secondary_color: #50d387;
 $bg_color: #f6f6f6;
+=======
+
+$primary_color: #315046;
+$secondary_color: #50d387;
+$secondary_color_1: #32c570;
+$bg_color: #f6f6f6;
+$bg_black: #000;
+
+// @mixin container_padding {
+//   padding: 90px 100px;
+
+//   @media all and (min-width: 2000px) {
+//     max-width: 85%;
+//     margin: 0 auto;
+//   }
+
+//   @media all and (max-width: 1200px) {
+//     padding: 80px 80px;
+//   }
+
+//   @media all and (max-width: 992px) {
+//     padding: 80px 50px;
+//   }
+
+//   @media all and (max-width: 768px) {
+//     padding: 80px 32px;
+//   }
+
+//   @media all and (max-width: 576px) {
+//     padding: 50px 14px;
+
+//   }
+// }
+
+@mixin h1_style {
+>>>>>>> 47b6b1f0e9d93d33ec7815b389f07eec3602e8bd
 
 // @mixin container_padding {
 //   padding: 90px 100px;
@@ -39,6 +76,8 @@ $bg_color: #f6f6f6;
 
   @media all and (max-width: 1200px) {
     font-size: 50px;
+<<<<<<< HEAD
+=======
   }
 
   @media all and (max-width: 992px) {
@@ -47,10 +86,26 @@ $bg_color: #f6f6f6;
 
   @media all and (max-width: 768px) {
     font-size: 40px;
+  font-size: 50px;
+
+>>>>>>> 47b6b1f0e9d93d33ec7815b389f07eec3602e8bd
+  }
+
+  @media all and (max-width: 992px) {
+    font-size: 45px;
+  }
+
+  @media all and (max-width: 768px) {
+<<<<<<< HEAD
+    font-size: 40px;
+=======
+  font-size:40px;
+>>>>>>> 47b6b1f0e9d93d33ec7815b389f07eec3602e8bd
   }
 
   @media all and (max-width: 576px) {
     font-size: 34px;
+<<<<<<< HEAD
   }
 }
 @mixin h2_style {
@@ -85,8 +140,34 @@ $bg_color: #f6f6f6;
   @media all and (max-width: 768px) {
     font-size: 16px;
 
+=======
+>>>>>>> 47b6b1f0e9d93d33ec7815b389f07eec3602e8bd
   }
 }
+@mixin h2_style {
+  font-size: 55px;
+  @include Poppins400;
+  margin: 0 0 20px;
+  letter-spacing: -2.96px;
+
+  @media all and (max-width: 1200px) {
+    font-size: 40px;
+  }
+
+  @media all and (max-width: 992px) {
+    font-size: 30px;
+  }
+
+  @media all and (max-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media all and (max-width: 576px) {
+    font-size: 28px;
+  }
+}
+
+@mixin Poppins400 {
 
 @mixin Poppins400 {
   font-family: "Poppins", sans-serif;
@@ -95,9 +176,20 @@ $bg_color: #f6f6f6;
 }
 
 .container.sec-padding {
+<<<<<<< HEAD
   padding: 80px 40px;
   @media all and (max-width: 1200px) {
     padding: 70px 30px;
+=======
+  padding: 80px 40px !important;
+  @media all and (max-width: 1200px) {
+    padding: 70px 30px;
+.container.sec-padding{
+  padding: 80px 40px;
+  @media all and (max-width:1200px) {
+  padding: 70px 30px;
+  
+>>>>>>> 47b6b1f0e9d93d33ec7815b389f07eec3602e8bd
   }
 }
 
@@ -106,7 +198,7 @@ $bg_color: #f6f6f6;
   padding: 16px 24px;
   background: linear-gradient(122deg, $primary_color 0%, $secondary_color 180%);
   color: white;
-  @include Poppins400();
+  @includepoppins400 ():;
   border-radius: 80px;
   -webkit-border-radius: 80px;
   -moz-border-radius: 80px;
@@ -114,6 +206,7 @@ $bg_color: #f6f6f6;
   -o-border-radius: 80px;
 }
 
+<<<<<<< HEAD
 
 
 
@@ -141,3 +234,38 @@ $bg_color: #f6f6f6;
 }
 
 
+=======
+@mixin gradient_variant {
+  background: linear-gradient(270deg, #50d387 0%, #296d46 100%);
+}
+
+@mixin text_gradient_variant {
+  background: linear-gradient(122deg, $primary_color 0%, $secondary_color 180%);
+  background: -webkit-linear-gradient(
+    122deg,
+    $primary_color 0%,
+    $secondary_color 180%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin text_gradient_variant_2 {
+  background: -webkit-linear-gradient(0deg, $bg_black 0%, $secondary_color_1 100%);
+  background: linear-gradient(90deg, $bg_black 0%, $secondary_color_1 140%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+@mixin p_style{
+  font-family: "Poppins", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4em;
+  letter-spacing: -0.02em;
+  @media all and (max-width: 768px) {
+    font-size: 16px;
+  }
+}
+>>>>>>> 47b6b1f0e9d93d33ec7815b389f07eec3602e8bd

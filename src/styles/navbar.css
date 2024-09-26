@@ -11,12 +11,16 @@
 .primary_btn {
   display: inline-block;
   padding: 16px 24px;
-  background: linear-gradient(122deg, #315046 0%, #50D387 180%);
+  background: linear-gradient(122deg, #315046 0%, #50d387 180%);
   color: white;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
   border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
 }
 
 .Navbar .container {
@@ -84,7 +88,7 @@
 }
 .Navbar .container .flex .nav-menu .nav-links li a {
   text-decoration: none;
-  color: #F6F6F6;
+  color: #f6f6f6;
   transform-origin: left;
   transition: 0.3s;
   font-size: 16px;
@@ -137,7 +141,7 @@
   cursor: pointer;
 }
 .Navbar .container .flex .nav-menu .menu-button label span {
-  background: #F6F6F6;
+  background: #f6f6f6;
   border-radius: 10px;
   height: 3px;
   margin: 3px 0;

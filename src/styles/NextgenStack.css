@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.container.sec-padding {
+  padding: 80px 40px;
+}
+@media all and (max-width: 1200px) {
+  .container.sec-padding {
+    padding: 70px 30px;
+  }
+}
+
+.primary_btn {
+  display: inline-block;
+  padding: 16px 24px;
+  background: linear-gradient(122deg, #315046 0%, #50d387 180%);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
+}
+
+.NextgenStack {
+  background-color: #002F21;
+}
+.NextgenStack .wrapper .flex .left-col .content h2 {
+  font-size: 55px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0 0 20px;
+  letter-spacing: -2.96px;
+  color: white;
+}
+@media all and (max-width: 1200px) {
+  .NextgenStack .wrapper .flex .left-col .content h2 {
+    font-size: 40px;
+  }
+}
+@media all and (max-width: 992px) {
+  .NextgenStack .wrapper .flex .left-col .content h2 {
+    font-size: 30px;
+  }
+}
+@media all and (max-width: 768px) {
+  .NextgenStack .wrapper .flex .left-col .content h2 {
+    font-size: 30px;
+  }
+}
+@media all and (max-width: 576px) {
+  .NextgenStack .wrapper .flex .left-col .content h2 {
+    font-size: 28px;
+  }
+}
+.NextgenStack .wrapper .flex .left-col .content h2 span {
+  background: linear-gradient(0deg, #fff 34%, #35B56B 100%);
+  background: -webkit-linear-gradient(0deg, #fff 34%, #35B56B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.NextgenStack .wrapper .flex .left-col .content p {
+  color: #f6f6f6;
+  font-family: "Poppins", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4em;
+  letter-spacing: -0.02em;
+}
+@media all and (max-width: 768px) {
+  .NextgenStack .wrapper .flex .left-col .content p {
+    font-size: 16px;
+  }
+}
+.NextgenStack .wrapper .flex .left-col .buttons-wrapper {
+  display: flex;
+  margin: 70px 0;
+  position: relative;
+}
+.NextgenStack .wrapper .flex .left-col .buttons-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: rgba(128, 128, 128, 0.315);
+  bottom: -20px;
+}
+.NextgenStack .wrapper .flex .left-col .buttons-wrapper .button {
+  display: flex;
+  width: 90%;
+  gap: 0 40px;
+}
+.NextgenStack .wrapper .flex .left-col .buttons-wrapper .button button {
+  color: rgb(196, 195, 195);
+  margin: 0 6px;
+  text-align: left;
+  font-size: 16px;
+}
+.NextgenStack .wrapper .flex .left-col .buttons-wrapper .button button p {
+  margin-top: 16px;
+  font-weight: 300;
+}
+.NextgenStack .wrapper .flex .left-col .buttons-wrapper .button button.active p {
+  color: white;
+  font-weight: 400 !important;
+}
+.NextgenStack .wrapper .flex .left-col .buttons-wrapper .button img {
+  width: 35px;
+}
+.NextgenStack .wrapper .flex .left-col .button-content ul {
+  display: grid;
+  color: white;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.NextgenStack .wrapper .flex .left-col .button-content ul li {
+  display: flex;
+  align-items: center;
+}
+.NextgenStack .wrapper .flex .left-col .button-content svg {
+  height: 8px;
+  margin-right: 8px;
+  color: #50d387;
+}
+.NextgenStack .wrapper .flex .right-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fade 300ms linear;
+  -webkit-animation: fade 500ms linear;
+}

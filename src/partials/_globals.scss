@@ -1,12 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-$primary_color:#315046;
-$secondary_color:#50D387;
-$bg_color:#F6F6F6;
-
-
-
-
+$primary_color: #315046;
+$dark_primary:#002F21;
+$secondary_color: #50d387;
+$bg_color: #f6f6f6;
 
 // @mixin container_padding {
 //   padding: 90px 100px;
@@ -34,53 +31,113 @@ $bg_color:#F6F6F6;
 //   }
 // }
 
-
-@mixin h1_style{
+@mixin h1_style {
   font-size: 74px;
   @include Poppins400;
   margin: 0 0 20px;
   letter-spacing: -2.96px;
 
   @media all and (max-width: 1200px) {
-  font-size: 50px;
-
+    font-size: 50px;
   }
 
   @media all and (max-width: 992px) {
-  font-size: 45px;
-
+    font-size: 45px;
   }
 
   @media all and (max-width: 768px) {
-  font-size:40px;
-
+    font-size: 40px;
   }
 
   @media all and (max-width: 576px) {
     font-size: 34px;
+  }
+}
+@mixin h2_style {
+  font-size: 55px;
+  @include Poppins400;
+  margin: 0 0 20px;
+  letter-spacing: -2.96px;
+
+  @media all and (max-width: 1200px) {
+    font-size: 40px;
+  }
+
+  @media all and (max-width: 992px) {
+    font-size: 30px;
+  }
+
+  @media all and (max-width: 768px) {
+    font-size: 30px;
+  }
+
+  @media all and (max-width: 576px) {
+    font-size: 28px;
+  }
+}
+
+@mixin p_style{
+  font-family: "Poppins", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4em;
+  letter-spacing: -0.02em;
+  @media all and (max-width: 768px) {
+    font-size: 16px;
 
   }
 }
 
-@mixin Poppins400{
+@mixin Poppins400 {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
-.container.sec-padding{
+.container.sec-padding {
   padding: 80px 40px;
-  @media all and (max-width:1200px) {
-  padding: 70px 30px;
-    
+  @media all and (max-width: 1200px) {
+    padding: 70px 30px;
   }
 }
 
-.primary_btn{
+.primary_btn {
   display: inline-block;
   padding: 16px 24px;
   background: linear-gradient(122deg, $primary_color 0%, $secondary_color 180%);
   color: white;
   @include Poppins400();
   border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
 }
+
+
+
+
+
+
+@mixin gradient_variant{
+  background: linear-gradient(270deg, #50D387 0%, #296D46 100%);
+  
+}
+
+
+@mixin text_gradient_variant{
+  background: linear-gradient(122deg, $primary_color 0%, $secondary_color 180%);
+  background: -webkit-linear-gradient(122deg, $primary_color 0%, $secondary_color 180%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+@mixin text_gradient_variant_2{
+  background: linear-gradient(0deg, #fff 34%, #35B56B 100%);
+  background: -webkit-linear-gradient(0deg, #fff 34%, #35B56B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+}
+
+

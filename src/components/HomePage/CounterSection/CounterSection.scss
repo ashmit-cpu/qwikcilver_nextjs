@@ -1,0 +1,48 @@
+@use "../../../partials/globals";
+
+.CounterSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    gap: 0 30px;
+    overflow: hidden;
+    @media all and (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+
+    @media all and (max-width: 576px) {
+      grid-template-columns: 1fr;
+      gap: 60px;
+    }
+
+    .col {
+      span {
+        font-size: 64px;
+        font-weight: 600;
+        @include globals.gradient_variant;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        width: 100%;
+      }
+      h3 {
+        font-size: 20px;
+        font-weight: 400;
+        color: globals.$primary_color;
+      }
+    }
+
+    .counter-prefix,
+    .counter-suffix {
+      font-size: 32px !important;
+    }
+
+    .special-prefix {
+      font-size: 50px !important;
+    }
+  }
+}

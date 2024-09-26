@@ -1,0 +1,82 @@
+@use "../../../partials/globals";
+
+.BrandThatLove {
+  background-color: white;
+  .row {
+    display: flex;
+    @media all and (max-width: 576px) {
+      flex-direction: column;
+    }
+    .left-col {
+      width: 40%;
+      @media all and (max-width: 576px) {
+        display: flex;
+        justify-content: center;
+      }
+      img {
+        @media all and (max-width: 576px) {
+          width: 100%;
+          max-width: 250px;
+        }
+      }
+
+      @media all and (max-width: 576px) {
+        width: 100%;
+      }
+    }
+    .right-col {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media all and (max-width: 576px) {
+        width: 100%;
+      }
+
+      h2 {
+        @include globals.h2_style;
+      }
+      span {
+        font-weight: 600;
+        color: globals.$primary_color;
+        // @include globals.text_gradient_variant;
+        //         background: linear-gradient(122deg, globals.$primary_color 0%, globals.$secondary_color 180%);
+        //   -webkit-background-clip: text;
+        //   -webkit-text-fill-color: transparent;
+      }
+      // swiper js
+      .mySwiper {
+        width: 100%;
+        height: 120%;
+
+        .slider_wrapper {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          background-color: white;
+          margin-top: 20px;
+
+          .img-container {
+            margin: 10px;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+            img {
+              max-width: 100%;
+            }
+          }
+          @keyframes fade {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+        }
+        .swiper-slide.swiper-slide-active {
+          animation: fade 1s linear;
+          -webkit-animation: fade 1s linear;
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 import Navbar from '@/components/common/Navbar/Navbar';
 import HeroSection from '@/components/HomePage/HeroSection/HeroSection';
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
-
+import CounterSection from '@/components/HomePage/CounterSection/CounterSection'
+import BrandThatLove from '@/components/HomePage/BrandThatLove/BrandThatLove'
+import NextgenStack from '@/components/HomePage/NextgenStack/NextgenStack'
 async function fetchHomePageData() {
   try {
     const res = await fetch(`${wordpressUrl}wp-json/wp/v2/home-page/8`, {
@@ -46,6 +48,9 @@ async function Home() {
     <div className="Home">
       <Navbar />
       <HeroSection data={datas} />
+      <CounterSection data={datas}/>
+      <BrandThatLove/>
+      <NextgenStack/>
     </div>
   );
 }

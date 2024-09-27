@@ -6,14 +6,15 @@
       .left-col {
         width: 60%;
         h1 {
-          font-size: 74px;
-          @include globals.Poppins400;
-          margin: 0 0 20px;
-          letter-spacing: -2.96px;
+         @include globals.h1_style;
         }
 
         .primary_btn{
             margin-top: 30px;
+        }
+
+        #text-anim{
+            color: globals.$secondary_color;
         }
         
       }

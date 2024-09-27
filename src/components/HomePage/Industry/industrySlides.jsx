@@ -83,7 +83,6 @@ export default function IndustrySlides() {
         {industries.map((industry, index) => (
 
           // eslint-disable-next-line react/jsx-key
-
           <SwiperSlide>
             <div className="industry_card" key={index}>
               <div className="industry_image">

@@ -58,7 +58,9 @@ const CounterCard = ({
 function CounterSection({ data }) {
   return (
     <div className="CounterSection">
-      <div className="container sec-padding">
+      {
+        data &&
+        <div className="container sec-padding">
         {data.acf.counter_section_value_first_column &&
           data.acf.counter_section_title_first_column && (
             <CounterCard
@@ -98,6 +100,7 @@ function CounterSection({ data }) {
             />
           )}
       </div>
+      }
     </div>
   );
 }

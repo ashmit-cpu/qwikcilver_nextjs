@@ -1,10 +1,12 @@
-import Navbar from '@/components/common/Navbar/Navbar';
 import HeroSection from '@/components/HomePage/HeroSection/HeroSection';
 import CaseStudy from '@/components/HomePage/case-study/CaseStudy';
 import Form from '@/components/HomePage/form/Form';
 import Industry from '@/components/HomePage/Industry/industry';
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
-
+import CounterSection from '@/components/HomePage/CounterSection/CounterSection'
+import BrandThatLove from '@/components/HomePage/BrandThatLove/BrandThatLove'
+import NextgenStack from '@/components/HomePage/NextgenStack/NextgenStack';
+import UseCases from '@/components/HomePage/UseCases/UseCases'
 async function fetchHomePageData() {
   try {
     const res = await fetch(`${wordpressUrl}wp-json/wp/v2/home-page/8`, {
@@ -47,11 +49,15 @@ async function Home() {
 
   return (
     <div className="Home">
-      {/* <Navbar /> */}
       <HeroSection data={datas} />
+      <CounterSection data={datas}/>
+      <BrandThatLove data={datas}/>
+      <NextgenStack data={datas}/>
+      <UseCases data={datas}/>
       <Industry />
       <Form />
-      <CaseStudy data={datas} />
+     <CaseStudy data={datas} />
+
       
     </div>
   );

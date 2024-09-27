@@ -104,6 +104,9 @@ const CaseStudy = ( {data} ) => {
           className="mySwiper relative "
         >
           {caseStudies.map((study, index) => (
+
+            // eslint-disable-next-line react/jsx-key
+
             <SwiperSlide>
               <div key={index} className="caseStudy_card">
                 <div className="caseStudy_image">
@@ -130,10 +133,15 @@ const CaseStudy = ( {data} ) => {
           ))}
           <div className="custom-prev absolute left-0 transform -translate-y-1/2 cursor-pointer text-2xl text-blue-600">
             <BsArrowLeft />
+
           </div>
           <div className="custom-next absolute right-0 transform -translate-y-1/2 cursor-pointer text-2xl text-blue-600">
             <BsArrowRight />
           </div>
+
+          </div>
+          
+
         </Swiper>
       </div>
 

@@ -12,15 +12,13 @@ export default function RootLayout({
   return (
     <html lang="en">
 
-      <body>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
-
       <MenuProvider>
         <body>
+        <Navbar />
+
           <main>{children}</main>
+        <Footer />
+
         </body>
       </MenuProvider>
     </html>

@@ -6,22 +6,45 @@ import "../../../styles/BrandThatLove.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-
 import { gsap } from "gsap";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
-// import "swiper/css/pagination";
 
 import { Autoplay, EffectFade } from "swiper/modules";
 
 import SplitType from "split-type";
 
-function BrandThatLove() {
+function BrandThatLove({ data }) {
   const countryRef = useRef(null);
-  const imgRef = useRef(null); 
+  const imgRef = useRef(null);
   const [currentCountry, setCurrentCountry] = useState();
+
+  // Array for the rotating countries
   const countries = ["Australia", "Canada", "Germany", "Japan", "India"];
+
+  // Array for the image contents to be mapped
+  const imageSlides = [
+    [
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-39.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-01-1.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-27.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp",
+    ],
+    [
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-41.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-41.webp",
+    ],
+    [
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp",
+      "https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-41.webp",
+    ],
+  ];
 
   useEffect(() => {
     let index = 0; // Start from the first country in the array
@@ -52,14 +75,13 @@ function BrandThatLove() {
       }
     );
 
+    // Rotate the globe image
     gsap.to(imgRef.current, {
-        rotation: 360,
-        duration: 100, // Rotate in 10 seconds
-        repeat: -1, // Repeat indefinitely
-        ease: "linear",
-      });
-
-    
+      rotation: 360,
+      duration: 100, // Rotate in 100 seconds
+      repeat: -1, // Repeat indefinitely
+      ease: "linear",
+    });
 
     // Clean up animation and SplitType on unmount
     return () => {
@@ -67,21 +89,26 @@ function BrandThatLove() {
       splitText.revert(); // Revert SplitType changes
     };
   }, [currentCountry]);
+
   return (
     <section className="BrandThatLove">
       <div className="row">
         <div className="left-col">
-          <img
-            src="https://www.qwikcilver.com/wp-content/uploads/2024/07/globe-png.webp"
-            alt="globe"
-            ref={imgRef}
-          />
+          {data.acf.brands_that_love_image && (
+            <img
+              src={data.acf.brands_that_love_image.link}
+              alt="globe"
+              ref={imgRef}
+            />
+          )}
         </div>
         <div className="right-col container sec-padding">
-          <h2>
-            Brands that love us across{" "}
-            <span ref={countryRef}>{currentCountry}</span>
-          </h2>
+          {data.acf.brands_that_love_title && (
+            <h2>
+              {data.acf.brands_that_love_title}{" "}
+              <span ref={countryRef}>{currentCountry}</span>
+            </h2>
+          )}
 
           <Swiper
             spaceBetween={20}
@@ -93,92 +120,17 @@ function BrandThatLove() {
             modules={[Autoplay, EffectFade]}
             className="mySwiper"
           >
-            <SwiperSlide>
-              <div className="slider_wrapper">
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-39.webp"
-                    alt="slider-img"
-                  />
+            {imageSlides.map((slideImages, slideIndex) => (
+              <SwiperSlide key={slideIndex}>
+                <div className="slider_wrapper">
+                  {slideImages.map((imageSrc, imgIndex) => (
+                    <div className="img-container" key={imgIndex}>
+                      <img src={imageSrc} alt={`slider-img-${imgIndex}`} />
+                    </div>
+                  ))}
                 </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-01-1.webp"
-                    alt="slider-img"
-                  />
-                </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-27.webp"
-                    alt="slider-img"
-                  />
-                </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-27.webp"
-                    alt="slider-img"
-                  />
-                </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp"
-                    alt="slider-img"
-                  />
-                </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp"
-                    alt="slider-img"
-                  />
-                </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp"
-                    alt="slider-img"
-                  />
-                </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp"
-                    alt="slider-img"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="slider_wrapper">
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp"
-                    alt="slider-img"
-                  />
-                </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp"
-                    alt="slider-img"
-                  />
-                </div>
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-41.webp"
-                    alt="slider-img"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <div className="slider_wrapper">
-                <div className="img-container">
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/Logos-11-1.webp"
-                    alt="slider-img"
-                  />
-                </div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

@@ -7,15 +7,18 @@
     padding: 70px 30px;
   }
 }
+@media all and (max-width: 578px) {
+  .container.sec-padding {
+    padding: 70px 14px;
+  }
+}
 
 .primary_btn {
   display: inline-block;
   padding: 16px 24px;
   background: linear-gradient(122deg, #315046 0%, #50d387 180%);
   color: white;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  @includepoppins400 ():;
   border-radius: 80px;
   -webkit-border-radius: 80px;
   -moz-border-radius: 80px;

@@ -2,19 +2,50 @@
 
 import React, { useState } from "react";
 import "../../../styles/NextgenStack.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
-
-function NextgenStack() {
+function NextgenStack({ data }) {
   const [selectedButton, setSelectedButton] = useState("button-1");
 
-  const handleButtonClick = (button) => {
-    setSelectedButton(button);
+  // Array to store button details and their corresponding content fetched from ACF fields
+  const buttonContent = [
+    {
+      id: "button-1",
+      title: data?.acf?.nextgen_button_1 || "",
+      imgSrc: data?.acf?.nextgen_image_1?.link || "",
+      points: data?.acf?.nextgen_bullet_points_1 ? data.acf.nextgen_bullet_points_1.split("\r\n") : [],
+      imgContent: data?.acf?.nextgen_image_content_1?.link || "",
+    },
+    {
+      id: "button-2",
+      title: data?.acf?.nextgen_button_2 || "",
+      imgSrc: data?.acf?.nextgen_image_2?.link || "",
+      points: data?.acf?.nextgen_bullet_points_2 ? data.acf.nextgen_bullet_points_2.split("\r\n") : [],
+      imgContent: data?.acf?.nextgen_image_content_2?.link || "",
+    },
+    {
+      id: "button-3",
+      title: data?.acf?.nextgen_button_3 || "",
+      imgSrc: data?.acf?.nextgen_image_3?.link || "",
+      points: data?.acf?.nextgen_bullet_points_3 ? data.acf.nextgen_bullet_points_3.split("\r\n") : [],
+      imgContent: data?.acf?.nextgen_image_content_3?.link || "",
+    },
+    {
+      id: "button-4",
+      title: data?.acf?.nextgen_button_4 || "",
+      imgSrc: data?.acf?.nextgen_image_4?.link || "",
+      points: data?.acf?.nextgen_bullet_points_4 ? data.acf.nextgen_bullet_points_4.split("\r\n") : [],
+      imgContent: data?.acf?.nextgen_image_content_4?.link || "",
+    },
+  ];
+
+  const handleButtonClick = (buttonId) => {
+    setSelectedButton(buttonId);
   };
 
   return (
-    <div className="NextgenStack">
+    <section className="NextgenStack">
       <div className="wrapper">
         <div className="flex sm:flex-row flex-col">
           <div className="left-col sm:w-7/12 container sec-padding">
@@ -24,153 +55,62 @@ function NextgenStack() {
                 <br /> For next-gen <span>businesses.</span>
               </h2>
               <p>
-                Acquire, retain and engage customers, employees, and partners,
-                with customised solutions built for scale.
+                {data?.acf?.nextgen_paragraph || ""}
               </p>
             </div>
 
+            {/* Buttons */}
             <div className="buttons-wrapper">
-              <div className="button">
-                <button
-                  onClick={() => handleButtonClick("button-1")}
-                  className={selectedButton === "button-1" ? "active" : ""}
-                >
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/credit-card-4-68.svg"
-                    alt="button 1"
-                  />
-                  <p>Prepaid Stack</p>
-                </button>
-              </div>
-              <div className="button">
-                <button
-                  onClick={() => handleButtonClick("button-2")}
-                  className={selectedButton === "button-2" ? "active" : ""}
-                >
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/share-code-code-angle-programming-share.svg"
-                    alt="button 2"
-                  />
-                  <p>Engagement & Loyalty Stack</p>
-                </button>
-              </div>
-              <div className="button">
-                <button
-                  onClick={() => handleButtonClick("button-3")}
-                  className={selectedButton === "button-3" ? "active" : ""}
-                >
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/loop-media-loop-media-playlist-music-video-entertainment-arrow-1.svg"
-                    alt="button 3"
-                  />
-                  <p>Open Loop Prepaid Stack</p>
-                </button>
-              </div>
-              <div className="button">
-                <button
-                  onClick={() => handleButtonClick("button-4")}
-                  className={selectedButton === "button-4" ? "active" : ""}
-                >
-                  <img
-                    src="https://www.qwikcilver.com/wp-content/uploads/2024/07/credit-card-4-68.svg"
-                    alt="button 4"
-                  />
-                  <p>Card Issuing Stack for Banks</p>
-                </button>
-              </div>
+              {buttonContent.map((button) => (
+                button.title && (
+                  <div className="button" key={button.id}>
+                    <button
+                      onClick={() => handleButtonClick(button.id)}
+                      className={selectedButton === button.id ? "active" : ""}
+                    >
+                      {button.imgSrc && <img src={button.imgSrc} alt={button.title} />}
+                      <p>{button.title}</p>
+                    </button>
+                  </div>
+                )
+              ))}
             </div>
 
-            <div
-              className="button-content"
-              data-aos="fade"
-              data-aos-duration="1000"
-            >
-              {/* Conditional rendering based on the selectedButton state */}
-              {selectedButton === "button-1" && <Section1 />}
-              {selectedButton === "button-2" && <Section2 />}
-
-              {selectedButton === "button-3" && <Section3 />}
-              {selectedButton === "button-4" && <Section4 />}
+            {/* Conditional Rendering of Content based on selectedButton */}
+            <div className="button-content" data-aos="fade" data-aos-duration="1000">
+              {buttonContent
+                .filter((button) => button.id === selectedButton)
+                .map((button) => (
+                  <div key={button.id}>
+                    {button.points.length > 0 && (
+                      <ul>
+                        {button.points.map((point, index) => (
+                          <li key={index}>
+                            <FontAwesomeIcon icon={faCircle} /> {point}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
             </div>
           </div>
+
+          {/* Right Column - Image */}
           <div className="right-col sm:w-4/12">
-            {selectedButton === "button-1" && (
-              <img
-                src="https://www.qwikcilver.com/wp-content/uploads/2024/07/image-asset.jpeg"
-                alt="Illustration of next-gen stacks for businesses"
-              />
-            )}
-            {selectedButton === "button-2" && (
-              <img
-                src="https://www.qwikcilver.com/wp-content/uploads/2024/07/shutterstock_1837500943.webp"
-                alt="Illustration of next-gen stacks for businesses"
-              />
-            )}
-            {selectedButton === "button-3" && (
-              <img
-                src="https://www.qwikcilver.com/wp-content/uploads/2024/07/shutterstock_2262340029-1.webp"
-                alt="Illustration of next-gen stacks for businesses"
-              />
-            )}
-            {selectedButton === "button-4" && (
-              <img
-                src="https://www.qwikcilver.com/wp-content/uploads/2024/07/shutterstock_2382325595-1.webp"
-                alt="Illustration of next-gen stacks for businesses"
-              />
-            )}
+            {buttonContent
+              .filter((button) => button.id === selectedButton && button.imgContent)
+              .map((button) => (
+                <img
+                  key={button.id}
+                  src={button.imgContent}
+                  alt={button.title}
+                />
+              ))}
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function Section1() {
-  return (
-    <div className="Section1">
-      <ul>
-        <li><FontAwesomeIcon icon={faCircle} />Brand Wallet</li>
-        <li><FontAwesomeIcon icon={faCircle} />Refunds </li>
-        <li><FontAwesomeIcon icon={faCircle} />Gift Cards</li>
-        <li><FontAwesomeIcon icon={faCircle} />Store Promotions</li>
-      </ul>
-    </div>
-  );
-}
-function Section2() {
-  return (
-    <div className="Section2">
-      <ul>
-        <li><FontAwesomeIcon icon={faCircle} />Channel partner loyalty programs</li>
-        <li><FontAwesomeIcon icon={faCircle} />Consumer promotion campaigns</li>
-        <li><FontAwesomeIcon icon={faCircle} />Employee R&R programs</li>
-        <li><FontAwesomeIcon icon={faCircle} />Sales and influencer incentive programs</li>
-      </ul>
-    </div>
-  );
-}
-function Section3() {
-  return (
-    <div className="Section3">
-      <ul>
-        <li><FontAwesomeIcon icon={faCircle} />Expense Management cards</li>
-        <li><FontAwesomeIcon icon={faCircle} />Food Cards</li>
-        <li><FontAwesomeIcon icon={faCircle} />Fuel Cards</li>
-        <li><FontAwesomeIcon icon={faCircle} />Travel Cards</li>
-      </ul>
-    </div>
-  );
-}
-function Section4() {
-  return (
-    <div className="Section4">
-    <ul>
-      <li><FontAwesomeIcon icon={faCircle} />Credit and debit cards</li>
-      <li><FontAwesomeIcon icon={faCircle} />Forex and prepaid cards</li>
-      <li><FontAwesomeIcon icon={faCircle} />Credit on UPI, NCMC</li>
-      <li><FontAwesomeIcon icon={faCircle} />Switching and embedded solutions</li>
-    </ul>
-  </div>
+    </section>
   );
 }
 

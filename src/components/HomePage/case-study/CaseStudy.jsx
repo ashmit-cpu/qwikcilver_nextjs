@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper/modules";
 
-const CaseStudy = () => {
+const CaseStudy = ( {data} ) => {
   const [caseStudies, setCaseStudies] = useState([]);
 
   const swiperRef = useRef(null);
@@ -61,13 +61,32 @@ const CaseStudy = () => {
 
   return (
     <div className="container mx-auto case_study">
-      <h2 className="text-center">
-        <span>Businesses</span> we’ve transformed.
-      </h2>
-      <p className="text-center mt-6">
+      {/* <h2 className="text-center"> */}
+        {
+          data && (
+              <h2 className="text-center"
+                  dangerouslySetInnerHTML={{
+                    __html: data.acf.case_study_heading 
+                  }}
+              />
+          )
+        }
+        {/* <span>Businesses</span> we’ve transformed. */}
+      {/* </h2> */}
+
+      {
+          data && (
+            <p className="text-center mt-6"
+                  dangerouslySetInnerHTML={{
+                    __html: data.acf.case_study_sub_heading 
+                  }}
+              />
+          )
+        }
+      {/* <p className="text-center mt-6">
         Delivering success for businesses across the globe one solution at a
         time.
-      </p>
+      </p> */}
 
       <div className="flex gap-5 mt-10 px-10 w-4/5 mx-auto justify-center">
         <Swiper
@@ -85,7 +104,9 @@ const CaseStudy = () => {
           className="mySwiper relative "
         >
           {caseStudies.map((study, index) => (
+
             // eslint-disable-next-line react/jsx-key
+
             <SwiperSlide>
               <div key={index} className="caseStudy_card">
                 <div className="caseStudy_image">
@@ -112,10 +133,15 @@ const CaseStudy = () => {
           ))}
           <div className="custom-prev absolute left-0 transform -translate-y-1/2 cursor-pointer text-2xl text-blue-600">
             <BsArrowLeft />
+
           </div>
           <div className="custom-next absolute right-0 transform -translate-y-1/2 cursor-pointer text-2xl text-blue-600">
             <BsArrowRight />
           </div>
+
+          </div>
+          
+
         </Swiper>
       </div>
 

@@ -56,7 +56,8 @@ async function Home() {
       <UseCases data={datas}/>
       <Industry />
       <Form />
-      <CaseStudy />
+     <CaseStudy data={datas} />
+
       
     </div>
   );

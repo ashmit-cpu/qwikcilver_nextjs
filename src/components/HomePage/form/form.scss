@@ -16,7 +16,9 @@
 
     span {
       font-weight: 600;
+
       @include globals.text_gradient_variant_white_green;
+
     }
   }
 }

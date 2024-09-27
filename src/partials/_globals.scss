@@ -60,7 +60,8 @@ $bg_black: #000;
 //     padding: 50px 14px;
 
 //   }
-// }
+// 
+}
 
 
 @mixin h1_style{
@@ -119,7 +120,7 @@ $bg_black: #000;
   }
 }
 
-@mixin Poppins400 {
+@mixin Poppins400 {}
 
 @mixin Poppins400{
   font-family: "Poppins", sans-serif;
@@ -131,11 +132,6 @@ $bg_black: #000;
   padding: 80px 40px !important;
   @media all and (max-width: 1200px) {
     padding: 70px 30px;
-.container.sec-padding{
-  padding: 80px 40px;
-  @media all and (max-width:1200px) {
-  padding: 70px 30px;
-  
   }
 }
 

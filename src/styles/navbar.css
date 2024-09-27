@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 .container.sec-padding {
   padding: 80px 40px !important;
-  padding: 80px 40px;
 }
 @media all and (max-width: 1200px) {
   .container.sec-padding {
@@ -15,9 +14,6 @@
   background: linear-gradient(122deg, #002F21 0%, #50d387 180%);
   color: white;
   @includepoppins400 ():;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
   border-radius: 80px;
   -webkit-border-radius: 80px;
   -moz-border-radius: 80px;
@@ -57,11 +53,6 @@
     transform: translateX(100%);
   }
 }
-.Navbar .container .flex .nav-link ul li a {
-  font-family: 500;
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 .Navbar .container .flex .nav-menu .nav-links li {
   position: relative;
 }
@@ -95,7 +86,7 @@
 }
 .Navbar .container .flex .nav-menu .nav-links li a {
   text-decoration: none;
-  color: #F6F6F6;
+  color: #f6f6f6;
   transform-origin: left;
   transition: 0.3s;
   font-size: 16px;
@@ -109,7 +100,7 @@
     position: relative;
     text-transform: capitalize;
     font-size: 28px;
-    color: #315046;
+    color: #002F21;
   }
 }
 @media all and (max-width: 576px) {
@@ -126,7 +117,7 @@
   }
 }
 .Navbar .container .flex .nav-menu .nav-links.active ~ .menu-button label span {
-  background: #315046;
+  background: #002F21;
 }
 .Navbar .container .flex .nav-menu .menu-button {
   display: none;
@@ -148,7 +139,7 @@
   cursor: pointer;
 }
 .Navbar .container .flex .nav-menu .menu-button label span {
-  background: #F6F6F6;
+  background: #f6f6f6;
   border-radius: 10px;
   height: 3px;
   margin: 3px 0;

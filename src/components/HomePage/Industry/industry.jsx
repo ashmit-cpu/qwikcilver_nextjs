@@ -1,6 +1,6 @@
 import React from "react";
 import "../../../styles/industry.css";
-import Button from "@/app/ui-element/button";
+import Button from "@/components/ui-element/button";
 import IndustrySlides from "./industrySlides";
 
 export default function Industry() {

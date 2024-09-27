@@ -10,7 +10,7 @@
             @include globals.h2_style;
             color: white;
             span {
-              @include globals.text_gradient_variant_2;
+              @include globals.text_gradient_variant_white_green;
             }
           }
           p {
@@ -68,13 +68,18 @@
             li{
               display: flex;
               align-items: center;
+              svg{
+                height: 8px; 
+                margin-right: 8px;
+                color: globals.$secondary_color;
+               }
             }
           }
-            svg{
-             height: 8px; 
-             margin-right: 8px;
-             color: globals.$secondary_color;
-            }
+
+          .OutlineButton{
+            margin-top: 50px;
+          }
+            
         }
       }
 

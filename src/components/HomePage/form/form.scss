@@ -1,0 +1,95 @@
+@use "../../../partials/globals";
+
+.Form_sec {
+  padding: 80px 0;
+  background-color: #002f21;
+  background-image: url(https://www.qwikcilver.com/wp-content/uploads/2024/07/homepage_stack_high_res_green0300-2.webp);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: right;
+  h2 {
+    color: #fff;
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 1em;
+    letter-spacing: -0.04em;
+
+    span {
+      font-weight: 600;
+      @include globals.text_gradient_variant_white_green;
+    }
+  }
+}
+.form_fields {
+  label {
+    color: #fff;
+    margin-top: 30px;
+    font-size: 14px;
+  }
+  input {
+    border: 1px solid #ffffff8a;
+    background: #fff0;
+    font-size: 15px;
+    height: 50px;
+    padding-left: 20px;
+    color: #fff;
+    outline: none;
+    &::placeholder {
+      color: #c0c0c0;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  select {
+    border: 1px solid #ffffff8a;
+    background: #fff0;
+    font-size: 15px;
+    height: 50px;
+    outline: none;
+    color: #fff;
+    &::placeholder {
+      color: #fff;
+    }
+  }
+  select option {
+    background: #002f21;
+    color: white;
+    border-bottom: 1px solid white;
+    padding: 5px;
+  }
+  textarea {
+    border: 1px solid #ffffff8a;
+    background: #fff0;
+    font-size: 15px;
+    outline: none;
+    color: #fff;
+  }
+  .Case_study_btn {
+    font-size: 15px;
+    padding: 15px 30px;
+    font-weight: 300;
+    display: flex;
+    width: fit-content;
+    color: #fff;
+    position: relative;
+    line-height: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #ffffff00;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-radius: 50px 50px 50px 50px;
+    -webkit-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+
+    svg {
+      margin-left: 15px;
+    }
+  }
+}

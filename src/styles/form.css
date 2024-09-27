@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.container.sec-padding {
+  padding: 80px 40px;
+}
+@media all and (max-width: 1200px) {
+  .container.sec-padding {
+    padding: 70px 30px;
+  }
+}
+@media all and (max-width: 578px) {
+  .container.sec-padding {
+    padding: 70px 14px;
+  }
+}
+
+.primary_btn {
+  display: inline-block;
+  padding: 16px 24px;
+  background: linear-gradient(122deg, #315046 0%, #50d387 180%);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
+}
+
+.Form_sec {
+  padding: 80px 0;
+  background-color: #002f21;
+  background-image: url(https://www.qwikcilver.com/wp-content/uploads/2024/07/homepage_stack_high_res_green0300-2.webp);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: right;
+}
+.Form_sec h2 {
+  color: #fff;
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: -0.04em;
+}
+.Form_sec h2 span {
+  font-weight: 600;
+  background: linear-gradient(0deg, #fff 34%, #35b56b 100%);
+  background: -webkit-linear-gradient(0deg, #fff 34%, #35b56b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form_fields label {
+  color: #fff;
+  margin-top: 30px;
+  font-size: 14px;
+}
+.form_fields input {
+  border: 1px solid rgba(255, 255, 255, 0.5411764706);
+  background: rgba(255, 255, 255, 0);
+  font-size: 15px;
+  height: 50px;
+  padding-left: 20px;
+  color: #fff;
+  outline: none;
+}
+.form_fields input::placeholder {
+  color: #c0c0c0;
+}
+.form_fields input:focus {
+  outline: none;
+}
+.form_fields select {
+  border: 1px solid rgba(255, 255, 255, 0.5411764706);
+  background: rgba(255, 255, 255, 0);
+  font-size: 15px;
+  height: 50px;
+  outline: none;
+  color: #fff;
+}
+.form_fields select::placeholder {
+  color: #fff;
+}
+.form_fields select option {
+  background: #002f21;
+  color: white;
+  border-bottom: 1px solid white;
+  padding: 5px;
+}
+.form_fields textarea {
+  border: 1px solid rgba(255, 255, 255, 0.5411764706);
+  background: rgba(255, 255, 255, 0);
+  font-size: 15px;
+  outline: none;
+  color: #fff;
+}
+.form_fields .Case_study_btn {
+  font-size: 15px;
+  padding: 15px 30px;
+  font-weight: 300;
+  display: flex;
+  width: fit-content;
+  color: #fff;
+  position: relative;
+  line-height: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0);
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  border-radius: 50px 50px 50px 50px;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+.form_fields .Case_study_btn svg {
+  margin-left: 15px;
+}

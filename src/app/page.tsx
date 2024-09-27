@@ -1,5 +1,7 @@
 import HeroSection from '@/components/HomePage/HeroSection/HeroSection';
 import CaseStudy from '@/components/HomePage/case-study/CaseStudy';
+import Form from '@/components/HomePage/form/Form';
+import Industry from '@/components/HomePage/Industry/industry';
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
 import CounterSection from '@/components/HomePage/CounterSection/CounterSection'
 import BrandThatLove from '@/components/HomePage/BrandThatLove/BrandThatLove'
@@ -51,7 +53,9 @@ async function Home() {
       <CounterSection data={datas}/>
       <BrandThatLove data={datas}/>
       <NextgenStack data={datas}/>
-      <UseCases/>
+      <UseCases data={datas}/>
+      <Industry />
+      <Form />
       <CaseStudy />
       
     </div>

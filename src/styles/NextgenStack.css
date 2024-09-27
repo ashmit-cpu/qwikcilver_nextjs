@@ -18,7 +18,9 @@
   padding: 16px 24px;
   background: linear-gradient(122deg, #315046 0%, #50d387 180%);
   color: white;
-  @includepoppins400 ():;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   border-radius: 80px;
   -webkit-border-radius: 80px;
   -moz-border-radius: 80px;
@@ -59,8 +61,8 @@
   }
 }
 .NextgenStack .wrapper .flex .left-col .content h2 span {
-  background: linear-gradient(0deg, #fff 34%, #35B56B 100%);
-  background: -webkit-linear-gradient(0deg, #fff 34%, #35B56B 100%);
+  background: linear-gradient(0deg, #fff 34%, #35b56b 100%);
+  background: -webkit-linear-gradient(0deg, #fff 34%, #35b56b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -122,10 +124,13 @@
   display: flex;
   align-items: center;
 }
-.NextgenStack .wrapper .flex .left-col .button-content svg {
+.NextgenStack .wrapper .flex .left-col .button-content ul li svg {
   height: 8px;
   margin-right: 8px;
   color: #50d387;
+}
+.NextgenStack .wrapper .flex .left-col .button-content .OutlineButton {
+  margin-top: 50px;
 }
 .NextgenStack .wrapper .flex .right-col img {
   width: 100%;

@@ -11,7 +11,7 @@
 .primary_btn {
   display: inline-block;
   padding: 16px 24px;
-  background: linear-gradient(122deg, #315046 0%, #50d387 180%);
+  background: linear-gradient(122deg, #002F21 0%, #50d387 180%);
   color: white;
   @includepoppins400 ():;
   border-radius: 80px;

@@ -2,6 +2,7 @@
 
 .case_study {
   padding: 80px 0;
+  position: relative;
   h2 {
     color: #000;
     font-size: 56px;
@@ -17,10 +18,14 @@
   p {
     @include globals.p_style;
   }
+
+  .swiper-pagination-bullets {
+    display: none;
+  }
   .caseStudy_card {
-    width: 50%;
+    width: 100%;
     height: 100%;
-    background-color: #002f21;
+    background-color: #002F21;
     border-radius: 30px;
     -webkit-border-radius: 30px;
     -moz-border-radius: 30px;
@@ -117,10 +122,45 @@
         -webkit-transition: all 0.4s ease;
         transition: all 0.4s ease;
 
-        svg{
-            margin-left: 15px;
+        svg {
+          margin-left: 15px;
         }
       }
     }
   }
+}
+
+.swiper,
+.swiper-wrapper {
+  position: unset !important;
+}
+.custom-prev,
+.custom-next {
+  width: 45px;
+  height: 45px;
+  color: #0000004d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 99;
+  position: absolute;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  background-color: transparent;
+  background-image: linear-gradient(122deg,  #002F21 0%, #50d387 180%);
+  color: #fff !important;
+}
+
+.custom-prev { 
+  left: 8%;
+  top: 55%;
+}
+
+.custom-next {
+  top: 55%;
+  right: 8%;
 }

@@ -1,6 +1,8 @@
 import Navbar from '@/components/common/Navbar/Navbar';
 import HeroSection from '@/components/HomePage/HeroSection/HeroSection';
 import CaseStudy from '@/components/HomePage/case-study/CaseStudy';
+import Form from '@/components/HomePage/form/Form';
+import Industry from '@/components/HomePage/Industry/industry';
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
 
 async function fetchHomePageData() {
@@ -29,7 +31,10 @@ async function Home() {
     <div className="Home">
       {/* <Navbar /> */}
       <HeroSection data={datas} />
+      <Industry />
+      <Form />
       <CaseStudy />
+      
     </div>
   );
 }

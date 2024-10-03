@@ -1,0 +1,125 @@
+import HeroSection from "@/components/HomePage/HeroSection/HeroSection";
+import CaseStudy from "@/components/HomePage/case-study/CaseStudy";
+import Form from "@/components/HomePage/form/Form";
+import Industry from "@/components/HomePage/Industry/industry";
+import CounterSection from "@/components/HomePage/CounterSection/CounterSection";
+import BrandThatLove from "@/components/HomePage/BrandThatLove/BrandThatLove";
+import NextgenStack from "@/components/HomePage/NextgenStack/NextgenStack";
+import UseCases from "@/components/HomePage/UseCases/UseCases";
+// import Head from 'next/head';
+// import { ApolloClient, HttpLink, InMemoryCache, gql } from "@apollo/client";
+import { wordpressUrl } from "@/Helpers/wordpressUrl";
+import { Metadata } from "next";
+// import parse from 'html-react-parser';
+
+// Function to initialize Apollo Client for GraphQL
+// function createApolloClient() {
+//   return new ApolloClient({
+//     link: new HttpLink({
+//       uri: graphqlUrl, // Ensure this is set in your environment variables
+//     }),
+//     cache: new InMemoryCache(),
+//   });
+// }
+
+// Fetch HomePage data from REST API
+async function fetchHomePageData() {
+  try {
+    const res = await fetch(`${wordpressUrl}/wp-json/wp/v2/home-page/8`, {
+      cache: "no-cache",
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch data. Status: ${res.status}`);
+    }
+
+    const datas = await res.json();
+    return datas;
+  } catch (error) {
+    console.error("Error fetching home page data:", error);
+    return null;
+  }
+}
+
+// Fetch SEO data via GraphQL
+// export async function fetchYoastSEO() {
+//   const apolloClient = createApolloClient();
+//   const query = gql`
+//     query Post {
+//       posts {
+//         edges {
+//           node {
+//             seo {
+//               fullHead
+//               metaDesc
+//               title
+//             }
+//             title
+//             slug
+//             uri
+//             excerpt
+//           }
+//         }
+//       }
+//     }
+//   `;
+
+//   try {
+//     const { data } = await apolloClient.query({
+//       query,
+//     });
+//     return data.posts.edges[0].node.seo.fullHead || "";
+//   } catch (error) {
+//     console.error("Error fetching Yoast SEO data:", error);
+//     return "";
+//   }
+// }
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await fetchHomePageData();
+  const yoastData = seo?.yoast_head_json;
+
+  return {
+    title: yoastData?.title || "Default Title",
+    description: yoastData?.description || "Default Description",
+    robots: {
+      index: yoastData?.robots?.index === "index" ? true : false,
+      follow: yoastData?.robots?.follow === "follow" ? true : false,
+    },
+    alternates: {
+      canonical: yoastData?.canonical || "",
+    },
+    openGraph: {
+      title: yoastData?.og_title || yoastData?.title || "Default OG Title",
+      description:
+        yoastData?.og_description || yoastData?.description || "Default OG Description",
+      url: yoastData?.og_url || yoastData?.canonical || "",
+      siteName: yoastData?.og_site_name || "Default Site Name",
+      type: yoastData?.og_type || "website",
+      locale: yoastData?.og_locale || "en_US",
+    },
+    twitter: {
+      card: yoastData?.twitter_card || "summary_large_image",
+    },
+  };
+}
+// The Home component
+export default async function Home() {
+  const datas = await fetchHomePageData();
+  // const seo = await fetchYoastSEO();
+
+  // console.log("fetching yoast seo",seo)
+  return (
+    <div className="Home">
+      
+      <HeroSection data={datas} />
+      <CounterSection data={datas} />
+      <BrandThatLove data={datas} />
+      <NextgenStack data={datas} />
+      <UseCases data={datas} />
+      <Industry />
+      <Form />
+      <CaseStudy data={datas} />
+    </div>
+  );
+}

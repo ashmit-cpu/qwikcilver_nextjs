@@ -8,6 +8,8 @@ import NextgenStack from "@/components/HomePage/NextgenStack/NextgenStack";
 import UseCases from "@/components/HomePage/UseCases/UseCases";
 import { wordpressUrl } from "@/Helpers/wordpressUrl";
 import { Metadata } from "next";
+import { fetchCaseStudyPageData } from './case-study/page';
+
 
 // Fetch HomePage data from REST API
 export async function fetchHomePageData() {
@@ -61,6 +63,8 @@ export async function generateMetadata(): Promise<Metadata> {
 // The Home component
 export default async function Home() {
   const datas = await fetchHomePageData();
+  const CaseStudyPageData = await fetchCaseStudyPageData();
+
   
   return (
     <div className="Home">
@@ -72,7 +76,8 @@ export default async function Home() {
       <UseCases data={datas} />
       <Industry />
       <Form />
-      <CaseStudy data={datas} />
+      <CaseStudy data={datas} caseStudyData={CaseStudyPageData} />
+
     </div>
   );
 }

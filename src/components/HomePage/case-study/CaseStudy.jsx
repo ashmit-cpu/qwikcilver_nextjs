@@ -1,53 +1,48 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import "../../../styles/CaseStudy.css";
-import { FaArrowRightLong } from "react-icons/fa6";
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import Button from "@/components/ui-element/button";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Pagination, Navigation } from "swiper/modules";
+import CaseStudyCard from "./caseStudyCard"; // Make sure to import the correct component
 
-const CaseStudy = ( {data} ) => {
-  const [caseStudies, setCaseStudies] = useState([]);
-
+const CaseStudy = ({ data, caseStudyData }) => {
   const swiperRef = useRef(null);
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
 
+  // useEffect(() => {
+  //   const caseStudiesData = [
+  //     {
+  //       image: "/imgs/Lulu-1.png",
+  //       title: "Lulu’s Multi-Country Gift Card Strategy powered by Qwikcilver",
+  //       description:
+  //         "A strategic collaboration with Qwikcilver by Pinelabs marked a pivotal shift, enabling Lulu to cater to its diverse customer base with an innovative solution.",
+  //       link: "#",
+  //     },
+  //     {
+  //       image: "/imgs/Nestle.png",
+  //       title: "Another Case Study with Great Results",
+  //       description:
+  //         "This is an example of another business that Qwikcilver transformed with a successful strategy, driving global growth.",
+  //       link: "#",
+  //     },
+  //     {
+  //       image: "/imgs/Nestle.png",
+  //       title: "Another Case Study with Great Results",
+  //       description:
+  //         "This is an example of another business that Qwikcilver transformed with a successful strategy, driving global growth.",
+  //       link: "#",
+  //     },
+  //   ];
 
-  useEffect(() => {
-    const caseStudiesData = [
-      {
-        image: "/imgs/Lulu-1.png",
-        title: "Lulu’s Multi-Country Gift Card Strategy powered by Qwikcilver",
-        description:
-          "A strategic collaboration with Qwikcilver by Pinelabs marked a pivotal shift, enabling Lulu to cater to its diverse customer base with an innovative solution.",
-        link: "#",
-      },
-      {
-        image: "/imgs/Nestle.png",
-        title: "Another Case Study with Great Results",
-        description:
-          "This is an example of another business that Qwikcilver transformed with a successful strategy, driving global growth.",
-        link: "#",
-      },
-      {
-        image: "/imgs/Nestle.png",
-        title: "Another Case Study with Great Results",
-        description:
-          "This is an example of another business that Qwikcilver transformed with a successful strategy, driving global growth.",
-        link: "#",
-      },
-    ];
-
-    // Set the case studies data
-    setCaseStudies(caseStudiesData);
-  }, []);
+  //   // Set the case studies data
+  //   setCaseStudies(caseStudiesData);
+  // }, []);
 
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -61,32 +56,23 @@ const CaseStudy = ( {data} ) => {
 
   return (
     <div className="container mx-auto case_study">
-      {/* <h2 className="text-center"> */}
-        {
-          data && (
-              <h2 className="text-center"
-                  dangerouslySetInnerHTML={{
-                    __html: data.acf.case_study_heading 
-                  }}
-              />
-          )
-        }
-        {/* <span>Businesses</span> we’ve transformed. */}
-      {/* </h2> */}
+      {data && (
+        <h2
+          className="text-center"
+          dangerouslySetInnerHTML={{
+            __html: data.acf?.case_study_heading,
+          }}
+        />
+      )}
 
-      {
-          data && (
-            <p className="text-center mt-6"
-                  dangerouslySetInnerHTML={{
-                    __html: data.acf.case_study_sub_heading 
-                  }}
-              />
-          )
-        }
-      {/* <p className="text-center mt-6">
-        Delivering success for businesses across the globe one solution at a
-        time.
-      </p> */}
+      {data && (
+        <p
+          className="text-center mt-6"
+          dangerouslySetInnerHTML={{
+            __html: data.acf.case_study_sub_heading,
+          }}
+        />
+      )}
 
       <div className="flex gap-5 mt-10 px-10 w-4/5 mx-auto justify-center">
         <Swiper
@@ -103,32 +89,12 @@ const CaseStudy = ( {data} ) => {
           }}
           className="mySwiper relative "
         >
-          {caseStudies.map((study, index) => (
-            // eslint-disable-next-line react/jsx-key
-            <SwiperSlide>
-              <div key={index} className="caseStudy_card">
-                <div className="caseStudy_image">
-                  <Image
-                    src={study.image}
-                    width="485"
-                    height="290"
-                    alt={study.title}
-                    rel="noreferrer"
-                  />
-                </div>
-                <div className="caseStudy_content">
-                  <h2>
-                    <a href={study.link}>{study.title}</a>
-                  </h2>
-                  <p>{study.description}</p>
-
-                  <a href="" className="Case_study_btn">
-                    View Case Study <FaArrowRightLong />
-                  </a>
-                </div>
-              </div>
+          {caseStudyData.map((study, index) => (
+            <SwiperSlide key={index}>
+              <CaseStudyCard study={study} /> 
             </SwiperSlide>
           ))}
+
           <div className="custom-prev absolute left-0 transform -translate-y-1/2 cursor-pointer text-2xl text-blue-600">
             <BsArrowLeft />
           </div>

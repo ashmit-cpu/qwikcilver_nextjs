@@ -6,6 +6,8 @@ import CaseStudyIndividualPage from  "@/components/caseStudyIndivisualPage/CaseS
 import { Metadata } from 'next';
 // import CtaAuthor from '@/components/caseStudyIndivisualPage/CtaAuthor/CtaAuthor'
 
+
+
 async function fetchCaseStudyIndividual(slug: string) {
   const response = await fetch(`${wordpressUrl}wp-json/wp/v2/case-study?slug=${slug}`);
   
@@ -16,7 +18,8 @@ async function fetchCaseStudyIndividual(slug: string) {
   const datas = await response.json();
   return datas[0];
 }
-
+/* eslint-disable array-callback-return */
+/* eslint-enable array-callback-return */
 export async function generateMetadata({ params }: { params: any }): Promise<Metadata> {
   const seo = await fetchCaseStudyIndividual(params.casestudydetail);
   const yoastData = seo?.yoast_head_json;
@@ -44,7 +47,8 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
     },
   };
 }
-
+/* eslint-disable array-callback-return */
+/* eslint-enable array-callback-return */
 async function CaseStudyDetail({params}:any) {
     const datas = await fetchCaseStudyIndividual(params.casestudydetail);
   return (

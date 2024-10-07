@@ -1,0 +1,36 @@
+@use "../../../partials/globals";
+
+.CtaAuthor {
+    position: relative;
+    margin-top: 60px;
+
+  .container.sec-padding {
+    margin-bottom: 80px;
+    padding: 45px !important;
+  }
+  .heading {
+    padding-bottom: 30px;
+  }
+  .container {
+    .flex {
+      .image-container {
+        img {
+          width: 100px !important;
+        }
+      }
+      .content_wrapper {
+        h3 {
+          @include globals.h3_style;
+          margin-bottom: 0 !important;
+
+          &::before{
+            display: none;
+          }
+        }
+        p {
+          @include globals.p_style;
+        }
+      }
+    }
+  }
+}

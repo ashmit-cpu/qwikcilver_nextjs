@@ -2,6 +2,10 @@ import { wordpressUrl } from "../../Helpers/wordpressUrl";
 import CaseStudy from "@/components/HomePage/case-study/CaseStudy";
 import CaseStudyCard from "@/components/HomePage/case-study/caseStudyCard";
 import "@/styles/CaseStudy.css";
+import BreadCrumb from '@/components/CaseStudyPage/BreadCrumb/BreadCrumb';
+import { Metadata } from "next";
+import { Key } from "react";
+
 // import { fetchHomePageData } from "../page";
 
 export async function fetchCaseStudyPageData() {
@@ -27,19 +31,32 @@ export async function fetchCaseStudyPageData() {
 }
 
 // Function to generate metadata
-export async function generateMetadata() {
-  const datas = await fetchCaseStudyPageData();
-
-  if (!datas) {
-    return {
-      title: "Default Title",
-      description: "Default description",
-    };
-  }
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await fetchCaseStudyPageData();
+  const yoastData = seo?.yoast_head_json;
 
   return {
-    title: datas?.title?.rendered || "Default Title",
-    description: datas?.acf?.meta_description || "Default description",
+    title: yoastData?.title,
+    description: yoastData?.description,
+    robots: {
+      index: yoastData?.robots?.index === "index",
+      follow: yoastData?.robots?.follow === "follow",
+    },
+    alternates: {
+      canonical: yoastData?.canonical,
+    },
+    openGraph: {
+      title: yoastData?.og_title || yoastData?.title,
+      description: yoastData?.og_description || yoastData?.description,
+      url: yoastData?.og_url || yoastData?.canonical,
+      siteName: yoastData?.og_site_name,
+      type: yoastData?.og_type || "website",
+      locale: yoastData?.og_locale || "en_US",
+    },
+    twitter: {
+      card: yoastData?.twitter_card || "summary_large_image",
+    },
+    
   };
 }
 
@@ -52,16 +69,10 @@ async function CaseStudyPage() {
 
   return (
     <>
-    <section className="breadcrumb pt-24  absolute  top-0 bg-slate-50 z-0 w-full">
-        <div className="container sec-padding">
-            <h1>Case Studies</h1>
-            <p>Discover our latest projects and client testimonials.</p>
-  
-        </div>
-    </section>
+    <BreadCrumb/>
       <div className="container CaseStudyPage mt-16 case_study sec-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-          {datas.map((study, index) => (
+          {datas.map((study: any, index: Key) => (
             <div key={index}>
               <CaseStudyCard study={study} />
             </div>

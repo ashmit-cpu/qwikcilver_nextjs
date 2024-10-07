@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 import '@/styles/CaseStudy.css';  
+import Link from "next/link";
 
 const CaseStudyCard = ({ study }) => {
   return (
@@ -18,13 +19,13 @@ const CaseStudyCard = ({ study }) => {
       </div>
       <div className="caseStudy_content">
         <h2>
-          <a href={study.link}>{study.acf.case_study_heading}</a>
+          <Link href={`case-study/${study.slug}`}>{study.acf.case_study_heading}</Link>
         </h2>
         <p>{study.acf.case_study_description}</p>
 
-        <a href={`case-study/${study.slug}`} className="Case_study_btn">
+        <Link href={`case-study/${study.slug}`} className="Case_study_btn">
           View Case Study <FaArrowRightLong />
-        </a>
+        </Link>
       </div>
     </div>
   );

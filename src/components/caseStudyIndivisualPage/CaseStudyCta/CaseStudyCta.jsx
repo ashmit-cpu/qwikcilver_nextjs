@@ -1,11 +1,14 @@
 import React from "react";
-import "../../styles/caseStudyIndivisual.css";
+// import "../../../styles/caseStudyIndivisual.css";
 import Button from "@/components/ui-element/button";
+import '../../../styles/CaseStudyCta.css';
 
 export default function CaseStudyCta({ props }) {
+
+  console.log(props,"props data: .....")
   return (
     <div className="ctaCaseStudy">
-      {props.acf.cta_heading && (
+      {props?.acf?.cta_heading && (
         <h4
           dangerouslySetInnerHTML={{
             __html: props.acf.cta_heading,
@@ -13,7 +16,7 @@ export default function CaseStudyCta({ props }) {
         />
       )}
 
-      {props.acf.cta_description && (
+      {props?.acf?.cta_description && (
         <p>{props.acf.cta_description}</p>
       )}
 

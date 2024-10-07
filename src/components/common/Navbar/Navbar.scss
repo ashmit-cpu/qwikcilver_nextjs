@@ -1,5 +1,6 @@
 @use "../../../partials/globals";
 .Navbar {
+    position: relative;
   .container {
     background-color: globals.$primary_color;
     .flex {
@@ -219,3 +220,5 @@
     }
   }
 }
+
+

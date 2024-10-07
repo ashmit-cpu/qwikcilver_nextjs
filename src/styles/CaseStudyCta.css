@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.container.sec-padding {
+  padding: 80px 40px;
+}
+@media all and (max-width: 1200px) {
+  .container.sec-padding {
+    padding: 70px 30px;
+  }
+}
+@media all and (max-width: 578px) {
+  .container.sec-padding {
+    padding: 70px 14px;
+  }
+}
+
+.primary_btn {
+  display: inline-block;
+  padding: 16px 24px;
+  background: linear-gradient(122deg, #315046 0%, #50d387 180%);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
+}
+
+.ctaCaseStudy {
+  background-color: #cfffe6;
+  padding: 40px 60px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  text-align: center;
+}
+.ctaCaseStudy h4 {
+  font-size: 40px;
+  margin-bottom: 14px !important;
+  font-weight: 600;
+}
+.ctaCaseStudy h4 span {
+  font-weight: 800;
+  background: -webkit-linear-gradient(0deg, #000 0%, #32c570 100%);
+  background: linear-gradient(90deg, #000 0%, #32c570 140%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ctaCaseStudy p {
+  font-size: 18px;
+}

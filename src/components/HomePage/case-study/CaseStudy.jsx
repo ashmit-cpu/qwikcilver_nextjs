@@ -105,7 +105,7 @@ const CaseStudy = ({ data, caseStudyData }) => {
       </div>
 
       <div className="flex justify-center mt-10">
-        <Button content="More case studies" href="javascript:void();" />
+        <Button content="More case studies" href="/case-study" />
       </div>
     </div>
   );

@@ -1,0 +1,14 @@
+@use "../../../partials/globals";
+
+.BreadCrumb {
+  margin-top: -80px;
+  padding: 50px 0;
+  h2{
+    @include globals.h2_style;
+    font-weight: 600;
+  }
+  p{
+    @include globals.p_style;
+
+  }
+}

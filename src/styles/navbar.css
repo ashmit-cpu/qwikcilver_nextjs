@@ -28,6 +28,9 @@
   -o-border-radius: 80px;
 }
 
+.Navbar {
+  position: relative;
+}
 .Navbar .container {
   background-color: #315046;
 }

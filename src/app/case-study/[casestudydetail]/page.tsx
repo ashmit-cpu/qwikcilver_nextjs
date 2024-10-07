@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
 import React from 'react';

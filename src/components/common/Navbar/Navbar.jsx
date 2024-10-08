@@ -26,7 +26,7 @@ function Navbar() {
   };
 
   return (
-    <div className="Navbar mt-3">
+    <nav className="Navbar mt-3">
       <div className="container m-3 rounded-full">
         <div className="flex flex-row justify-between">
           <div className="col my-auto ml-5 sticky top-0">
@@ -65,7 +65,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   );
 }
 

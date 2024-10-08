@@ -1,4 +1,3 @@
-// import Image from "next/image";
 "use client"
 
 import Image from "next/image";
@@ -40,6 +39,9 @@ function Navbar() {
               </li>
               <li>
                 <Link href={"/about"}onClick={() => handleMenuItemClick('/about')} className="text-white">About Us</Link>
+              </li>
+              <li>
+                <Link href={"/case-study"}onClick={() => handleMenuItemClick('/case-study')} className="text-white">Case Study</Link>
               </li>
               <li>
                 <Link href={"/solutions"}onClick={() => handleMenuItemClick('/solutions')} className="text-white">Solutions</Link>

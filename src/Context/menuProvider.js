@@ -11,7 +11,7 @@ export const MenuProvider = ({ children }) => {
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
     const html = document.querySelector("html");
-    if (html && window.innerWidth > 768) {
+    if (html && window.innerWidth < 768) {
       html.style.overflowY = menuOpen ? "auto" : "hidden"; // Toggle scroll lock
     }
   };

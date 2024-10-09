@@ -2,6 +2,7 @@
 
 .NextgenStack {
   background-color: globals.$dark_primary;
+  border-radius: 0 0 100px 0;
   .wrapper {
     .flex {
       .left-col {
@@ -90,6 +91,8 @@
           object-fit: cover;
           animation: fade 300ms linear;
           -webkit-animation: fade 500ms linear;
+  border-radius: 0 0 100px 0;
+
         }
 
         

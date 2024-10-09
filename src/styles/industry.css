@@ -28,16 +28,13 @@
   -o-border-radius: 80px;
 }
 
-.industry_sec {
-  padding: 80px 0;
-}
-.industry_sec h2 {
+.Industry h2 {
   color: #000;
   font-size: 56px;
   font-weight: 400;
   line-height: 1em;
 }
-.industry_sec h2 span {
+.Industry h2 span {
   font-weight: 600;
   background: -webkit-linear-gradient(0deg, #000 0%, #32c570 100%);
   background: linear-gradient(90deg, #000 0%, #32c570 140%);
@@ -46,7 +43,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.industry_sec p {
+.Industry p {
   font-family: "Poppins", Sans-serif;
   font-size: 18px;
   font-weight: 400;
@@ -54,7 +51,7 @@
   letter-spacing: -0.02em;
 }
 @media all and (max-width: 768px) {
-  .industry_sec p {
+  .Industry p {
     font-size: 16px;
   }
 }

@@ -6,7 +6,7 @@ import IndustrySlides from "./industrySlides";
 export default function Industry() {
   return (
     <>
-      <div className="container industry_sec">
+      <div className="Industry container sec-padding">
         <div className="flex">
           <div className="w-1/2">
             <h2>

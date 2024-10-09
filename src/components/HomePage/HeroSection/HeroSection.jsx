@@ -178,7 +178,7 @@ function HeroSection({ data }) {
 
   return (
     <section className="HeroSection relative">
-      <div className="sec-padding content flex flex-row">
+      <div className="sec-padding content container flex flex-row">
         <div className="col left-col">
           {data && (
             <h1

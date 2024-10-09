@@ -30,6 +30,7 @@
 
 .NextgenStack {
   background-color: #002F21;
+  border-radius: 0 0 100px 0;
 }
 .NextgenStack .wrapper .flex .left-col .content h2 {
   font-size: 55px;
@@ -138,4 +139,5 @@
   object-fit: cover;
   animation: fade 300ms linear;
   -webkit-animation: fade 500ms linear;
+  border-radius: 0 0 100px 0;
 }

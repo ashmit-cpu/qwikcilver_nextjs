@@ -3,7 +3,21 @@
 .NextgenStack {
   background-color: globals.$dark_primary;
   border-radius: 0 0 100px 0;
+
   .wrapper {
+    .next-padding {
+      padding: 80px 60px;
+     @media all and (min-width:1400px) {
+      padding: 80px 0;
+      padding-left: 10%;
+     }
+     @media all and (max-width: 1200px) {
+      padding: 70px 30px;
+    }
+    @media all and (max-width: 578px) {
+      padding: 70px 14px;
+    }
+    }
     .flex {
       .left-col {
         .content {
@@ -52,8 +66,7 @@
               p {
                 color: white;
                 font-weight: 400 !important;
-                
-}
+              }
             }
             img {
               width: 35px;
@@ -66,21 +79,20 @@
             color: white;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            li{
+            li {
               display: flex;
               align-items: center;
-              svg{
-                height: 8px; 
+              svg {
+                height: 8px;
                 margin-right: 8px;
                 color: globals.$secondary_color;
-               }
+              }
             }
           }
 
-          .OutlineButton{
+          .OutlineButton {
             margin-top: 50px;
           }
-            
         }
       }
 
@@ -91,11 +103,8 @@
           object-fit: cover;
           animation: fade 300ms linear;
           -webkit-animation: fade 500ms linear;
-  border-radius: 0 0 100px 0;
-
+          border-radius: 0 0 100px 0;
         }
-
-        
       }
     }
   }

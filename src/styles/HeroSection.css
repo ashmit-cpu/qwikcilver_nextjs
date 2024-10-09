@@ -87,6 +87,11 @@
   justify-content: center;
   align-items: center;
 }
+@media all and (min-width: 1400px) {
+  .HeroSection .content {
+    left: 100px;
+  }
+}
 @media all and (max-width: 1200px) {
   .HeroSection .content {
     left: 30px;

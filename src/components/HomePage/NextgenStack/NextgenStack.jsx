@@ -60,8 +60,8 @@ function NextgenStack({ data }) {
   return (
     <section className="NextgenStack">
       <div className="wrapper">
-        <div className="flex sm:flex-row flex-col">
-          <div className="left-col sm:w-7/12 container sec-padding">
+        <div className="flex sm:flex-row flex-col  justify-between">
+          <div className="left-col sm:w-7/12 next-padding">
             <div className="content">
               {data?.acf?.nextgen_title && (
                 <h2

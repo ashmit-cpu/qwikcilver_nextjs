@@ -59,7 +59,7 @@ function UseCases({ data }) {
     <section className="UseCases">
       <div className="container sec-padding">
         <div className="top-section">
-          <div className="flex flex-col sm:flex-row items-center justify-between">
+          <div className="flex flex-col sm:flex-row  justify-between">
             <div className="col sm:w-7/12">
               {data && (
                 <h2

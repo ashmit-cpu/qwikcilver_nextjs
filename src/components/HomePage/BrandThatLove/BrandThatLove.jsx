@@ -18,7 +18,7 @@ import SplitType from "split-type";
 function BrandThatLove({ data }) {
   const countryRef = useRef(null);
   const imgRef = useRef(null);
-  const [currentCountry, setCurrentCountry] = useState();
+  const [currentCountry, setCurrentCountry] = useState('Australia');
 
   // Array for the rotating countries
   const countries = ["Australia", "Canada", "Germany", "Japan", "India"];
@@ -46,49 +46,49 @@ function BrandThatLove({ data }) {
     ],
   ];
 
-  useEffect(() => {
-    let index = 0; // Start from the first country in the array
-    const interval = setInterval(() => {
-      index = (index + 1) % countries.length; // Cycle through countries array
-      setCurrentCountry(countries[index]); // Update the country displayed
-    }, 2000); // Change every 1 second
+  // useEffect(() => {
+  //   let index = 0; // Start from the first country in the array
+  //   const interval = setInterval(() => {
+  //     index = (index + 1) % countries.length; // Cycle through countries array
+  //     setCurrentCountry(countries[index]); // Update the country displayed
+  //   }, 2000); // Change every 1 second
 
-    return () => clearInterval(interval); // Clean up on component unmount
-  }, []);
+  //   return () => clearInterval(interval); // Clean up on component unmount
+  // }, []);
 
-  useEffect(() => {
-    // Split text into words/characters
-    const splitText = new SplitType(countryRef.current, {
-      types: "words, chars",
-    });
+  // useEffect(() => {
+  //   // Split text into words/characters
+  //   const splitText = new SplitType(countryRef.current, {
+  //     types: "words, chars",
+  //   });
 
-    // Animate the split text using GSAP
-    gsap.fromTo(
-      splitText.chars,
-      { opacity: 0, y: 50 }, // Start with invisible and below position
-      {
-        opacity: 1,
-        y: 0,
-        stagger: 0.05, // Delay between each character
-        duration: 0.5,
-        ease: "power2.out",
-      }
-    );
+  //   // Animate the split text using GSAP
+  //   gsap.fromTo(
+  //     splitText.chars,
+  //     { opacity: 0, y: 50 }, // Start with invisible and below position
+  //     {
+  //       opacity: 1,
+  //       y: 0,
+  //       stagger: 0.05, // Delay between each character
+  //       duration: 0.5,
+  //       ease: "power2.out",
+  //     }
+  //   );
 
-    // Rotate the globe image
-    gsap.to(imgRef.current, {
-      rotation: 360,
-      duration: 100, // Rotate in 100 seconds
-      repeat: -1, // Repeat indefinitely
-      ease: "linear",
-    });
+  //   // Rotate the globe image
+  //   gsap.to(imgRef.current, {
+  //     rotation: 360,
+  //     duration: 100, // Rotate in 100 seconds
+  //     repeat: -1, // Repeat indefinitely
+  //     ease: "linear",
+  //   });
 
-    // Clean up animation and SplitType on unmount
-    return () => {
-      gsap.killTweensOf(splitText.chars);
-      splitText.revert(); // Revert SplitType changes
-    };
-  }, [currentCountry]);
+  //   // Clean up animation and SplitType on unmount
+  //   return () => {
+  //     gsap.killTweensOf(splitText.chars);
+  //     splitText.revert(); // Revert SplitType changes
+  //   };
+  // }, [currentCountry]);
 
   return (
     <section className="BrandThatLove">

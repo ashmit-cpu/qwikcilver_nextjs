@@ -60,6 +60,12 @@
   display: none;
 }
 
+@media all and (min-width: 1400px) {
+  .swiper {
+    max-width: 1180px;
+  }
+}
+
 .industry_card {
   position: relative;
   width: 100%;

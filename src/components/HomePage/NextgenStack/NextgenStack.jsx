@@ -87,7 +87,12 @@ function NextgenStack({ data }) {
                         {button.imgSrc && (
                           <img src={button.imgSrc} alt={button.title} />
                         )}
-                        <p>{button.title}</p>
+                        {/* <p>{button.title}</p> */}
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: button.title,
+                          }}
+                        />
                       </button>
                     </div>
                   )

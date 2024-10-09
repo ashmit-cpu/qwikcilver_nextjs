@@ -7,6 +7,7 @@
   .wrapper {
     .next-padding {
       padding: 80px 0 80px 7%;
+      // margin-left: calc((100% - 1140px));
      @media all and (min-width:1400px) {
       padding: 80px 0;
       padding-left: 10%;
@@ -38,6 +39,7 @@
           display: flex;
           margin: 70px 0;
           position: relative;
+          justify-content: space-between;
 
           &::before {
             content: "";
@@ -50,7 +52,7 @@
 
           .button {
             display: flex;
-            width: 90%;
+            width: 20%;
             gap: 0 40px;
             button {
               color: rgb(196, 195, 195);

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
@@ -11,67 +11,59 @@ import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection({ data }) {
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const words = ["challenges", "solutions", "ideas"];
+  const spanRef = useRef(null);
+
   useEffect(() => {
-    // WordTransition class implementation
-    class WordTransition {
-      currentIndex = 0;
+   // Make sure to access the ref only after the component has mounted
+   const animateText = () => {
+    if (spanRef.current) {
+      const initialText = spanRef.current.textContent; // Save initial text
+      const allWords = [initialText, ...words]; // Combine initial text with words
+      spanRef.current.innerHTML = allWords[currentIndex];
+      
+      // Split the text into characters
+      const splitText = new SplitType(spanRef.current, { types: "chars" });
+      const chars = splitText.chars;
 
-      constructor(target, words) {
-        this.target = typeof target === "string" ? document.querySelector(target) : target;
-        if (this.target) {
-          this.initialText = this.target.textContent; // Save initial text
-          words.unshift(this.initialText); // Insert the initial text once
-          this.words = words;
-          this.nextWord = this.nextWord.bind(this);
-          this.animate();
-        }
-      }
-
-      nextWord() {
-        this.currentIndex = this.currentIndex >= this.words.length - 1 ? 0 : this.currentIndex + 1;
-        this.target.innerHTML = this.words[this.currentIndex];
-        this.animate();
-      }
-
-      animate() {
-        // Split the target element into individual characters
-        let splitText = new SplitType(this.target, {
-          types: "chars",
-        });
-
-        let chars = splitText.chars;
-        let textAnimation = gsap.timeline({
-          repeat: 0,
-          onComplete: this.nextWord,
-        });
-
-        // Animate each character
-        textAnimation.fromTo(
-          chars,
-          {
-            opacity: 0,
-            rotateX: 360,
-            rotateY: 90,
-            y: 50,
+      // Animate characters
+      gsap.fromTo(
+        chars,
+        {
+          opacity: 0,
+          rotateX: 360,
+          rotateY: 90,
+          y: 50,
+        },
+        {
+          duration: 1,
+          opacity: 1,
+          rotateX: 0,
+          rotateY: 0,
+          y: 0,
+          stagger: 0.05,
+          ease: "power2.out",
+          onComplete: () => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % allWords.length);
           },
-          {
-            duration: 1,
-            opacity: 1,
-            rotateX: 0,
-            rotateY: 0,
-            y: 0,
-            stagger: 0.05,
-            ease: "power2.out",
-          }
-        );
-      }
+        }
+      );
     }
+  };
 
-    // Initialize WordTransition
-    const spanElement = document.getElementById("text-anim");
-    if (spanElement) {
-      new WordTransition(spanElement, ["challenges", "solutions", "ideas"]);
+  // Start the animation
+  animateText();
+
+  // Set an interval to change words
+  const interval = setInterval(() => {
+    if (spanRef.current) {
+      animateText();
     }
+  }, 3000); // Change words every 3 seconds
+
+  
 
     // Video frames preloading
 

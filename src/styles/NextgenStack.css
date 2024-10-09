@@ -103,6 +103,7 @@
   display: flex;
   margin: 70px 0;
   position: relative;
+  justify-content: space-between;
 }
 .NextgenStack .wrapper .flex .left-col .buttons-wrapper::before {
   content: "";
@@ -114,7 +115,7 @@
 }
 .NextgenStack .wrapper .flex .left-col .buttons-wrapper .button {
   display: flex;
-  width: 90%;
+  width: 20%;
   gap: 0 40px;
 }
 .NextgenStack .wrapper .flex .left-col .buttons-wrapper .button button {

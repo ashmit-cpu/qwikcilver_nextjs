@@ -5,7 +5,12 @@ import '../../../styles/CaseStudyCta.css';
 
 export default function CaseStudyCta({ props }) {
 
-  console.log(props,"props data: .....")
+  console.log("props data: .....", props);
+
+  
+  if (!props.acf.cta_heading && !props.acf.cta_description) return null;
+
+
   return (
     <div className="ctaCaseStudy">
       {props?.acf?.cta_heading && (

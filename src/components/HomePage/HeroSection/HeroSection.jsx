@@ -11,60 +11,66 @@ import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 
 function HeroSection({ data }) {
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const words = ["challenges", "solutions", "ideas"];
-  const spanRef = useRef(null);
+  // const spanRef = useRef(null);
+
+
+ 
+  useEffect(() => {
+    // Combine the initial text with the words array
+    const spanElement = document.querySelector(".HeroSection h1 span");
+
+    // first element in span array 
+    const initialText = spanElement.textContent; // Get the initial text from the span
+    const allWords = [initialText, ...words];
+
+    // Function to animate each word
+    const animateText = () => {
+      if (spanElement) {
+        // Set the new word in the span
+        spanElement.textContent = allWords[currentIndex];
+
+        // Split the new word into characters using SplitType
+        const splitText = new SplitType(spanElement, { types: "chars" });
+        const chars = splitText.chars; // Array of characters
+
+        // Animate each character using GSAP
+        gsap.fromTo(
+          chars,
+          { opacity: 0, x: 50, rotateX: 360 }, // Start with opacity 0, rotate X, and translate Y
+          {
+            opacity: 1,
+            x: 0,
+            rotateX: 0, // Restore to original position
+            duration: 1.3,
+            stagger: 0.15, // Stagger each character animation
+            ease: "power2.out",
+            onComplete: () => {
+
+              
+              // Move to the next word
+              setCurrentIndex((prevIndex) => (prevIndex + 1) % allWords.length);
+            },
+          }
+        );
+      }
+    };
+
+    // Start the animation
+    animateText();
+
+    // Set an interval to change words every 3 seconds
+    const interval = setInterval(() => {
+      animateText();
+    }, 6000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
 
   useEffect(() => {
-   // Make sure to access the ref only after the component has mounted
-   const animateText = () => {
-    if (spanRef.current) {
-      const initialText = spanRef.current.textContent; // Save initial text
-      const allWords = [initialText, ...words]; // Combine initial text with words
-      spanRef.current.innerHTML = allWords[currentIndex];
-      
-      // Split the text into characters
-      const splitText = new SplitType(spanRef.current, { types: "chars" });
-      const chars = splitText.chars;
-
-      // Animate characters
-      gsap.fromTo(
-        chars,
-        {
-          opacity: 0,
-          rotateX: 360,
-          rotateY: 90,
-          y: 50,
-        },
-        {
-          duration: 1,
-          opacity: 1,
-          rotateX: 0,
-          rotateY: 0,
-          y: 0,
-          stagger: 0.05,
-          ease: "power2.out",
-          onComplete: () => {
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % allWords.length);
-          },
-        }
-      );
-    }
-  };
-
-  // Start the animation
-  animateText();
-
-  // Set an interval to change words
-  const interval = setInterval(() => {
-    if (spanRef.current) {
-      animateText();
-    }
-  }, 3000); // Change words every 3 seconds
-
-  
-
     // Video frames preloading
 
     const canvas = document.querySelector("canvas");

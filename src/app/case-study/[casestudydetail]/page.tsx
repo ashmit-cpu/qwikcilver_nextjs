@@ -6,7 +6,7 @@ import CaseStudyIndividualPage from  "@/components/caseStudyIndivisualPage/CaseS
 import { Metadata } from 'next';
 // import CtaAuthor from '@/components/caseStudyIndivisualPage/CtaAuthor/CtaAuthor'
 
-async function fetchCaseStudyIndividual(slug: string) {
+export async function fetchCaseStudyIndividual(slug: string) {
   const response = await fetch(`${wordpressUrl}wp-json/wp/v2/case-study?slug=${slug}`);
   
   if (!response.ok) {

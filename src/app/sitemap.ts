@@ -1,7 +1,7 @@
 
 import { MetadataRoute } from 'next';
 
-const BaseUrl = "https://qwikcilver-nextjs.vercel.app/"
+const BaseUrl = "https://qwikcilver-nextjs.vercel.app"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

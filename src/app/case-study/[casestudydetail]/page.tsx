@@ -2,37 +2,38 @@
 
 import { wordpressUrl } from '@/Helpers/wordpressUrl';
 import React from 'react';
-import CaseStudyIndividualPage from  "@/components/caseStudyIndivisualPage/CaseStudyIndivisualPage/CaseStudyIndivisualPage";
+import CaseStudyIndividualPage from "@/components/caseStudyIndivisualPage/CaseStudyIndivisualPage/CaseStudyIndivisualPage";
 import { Metadata } from 'next';
-// import CtaAuthor from '@/components/caseStudyIndivisualPage/CtaAuthor/CtaAuthor'
 
-export async function fetchCaseStudyIndividual(slug: string) {
+// Private function for fetching case study data
+async function fetchCaseStudyIndividual(slug: string) {
   const response = await fetch(`${wordpressUrl}wp-json/wp/v2/case-study?slug=${slug}`);
-  
+
   if (!response.ok) {
     throw new Error(`Failed to fetch data: ${response.statusText}`);
   }
-  
+
   const datas = await response.json();
   return datas[0];
 }
 
+// Metadata generation function
 export async function generateMetadata({ params }: { params: any }): Promise<Metadata> {
   const seo = await fetchCaseStudyIndividual(params.casestudydetail);
   const yoastData = seo?.yoast_head_json;
 
   return {
-    title: yoastData?.title || "", // Default to an empty string if not available
-    description: yoastData?.description || "", // Default to an empty string if not available
+    title: yoastData?.title || "",
+    description: yoastData?.description || "",
     robots: {
       index: yoastData?.robots?.index === "index",
       follow: yoastData?.robots?.follow === "follow",
     },
     alternates: {
-      canonical: yoastData?.canonical || "", // Default to an empty string if not available
+      canonical: yoastData?.canonical || "",
     },
     openGraph: {
-      title: yoastData?.og_title || yoastData?.title || "", // Default to an empty string if not available
+      title: yoastData?.og_title || yoastData?.title || "",
       description: yoastData?.og_description || yoastData?.description || "",
       url: yoastData?.og_url || yoastData?.canonical || "",
       siteName: yoastData?.og_site_name || "",
@@ -45,15 +46,14 @@ export async function generateMetadata({ params }: { params: any }): Promise<Met
   };
 }
 
-async function CaseStudyDetail({params}:any) {
-    const datas = await fetchCaseStudyIndividual(params.casestudydetail);
+// Page component
+async function CaseStudyDetail({ params }: { params: any }) {
+  const datas = await fetchCaseStudyIndividual(params.casestudydetail);
   return (
     <div>
-       
-        <CaseStudyIndividualPage data={datas}/>
-        {/* <CtaAuthor/> */}
+      <CaseStudyIndividualPage data={datas} />
     </div>
-  )
+  );
 }
 
-export default CaseStudyDetail
+export default CaseStudyDetail;

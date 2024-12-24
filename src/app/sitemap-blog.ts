@@ -56,6 +56,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  // Return combined static and dynamic routes
-  return [...staticRoutes, ...caseStudyRoutes];
+   // Combine static and dynamic routes
+   const sitemapRoutes = [...staticRoutes, ...caseStudyRoutes];
+
+   // Log the generated sitemap to the console
+   console.log(JSON.stringify(sitemapRoutes)); // Pretty-print the JSON for better readability
+ 
+   // Return combined static and dynamic routes
+   return sitemapRoutes;
 }

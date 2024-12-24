@@ -19,7 +19,8 @@ const CaseStudyCard = ({ study }) => {
       </div>
       <div className="caseStudy_content">
         <h2>
-          <Link href={`case-study/${study.slug}`}>{study.acf.case_study_heading}</Link>
+          {study.title.rendered && <Link href={`case-study/${study.slug}`}>{study.title.rendered}</Link>}
+          
         </h2>
         <p>{study.acf.case_study_description}</p>
 
